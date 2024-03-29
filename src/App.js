@@ -27,9 +27,6 @@ import SingleVerticalThumbnail from './pages/shop/SingleVerticalThumbnail';
 import ShopSliderImages from './pages/shop/ShopSliderImages';
 import ScrollToTop from "./ScrollToTop";
 
-import UploadImages from "./components/filepreview.component";
-
-
 function App() {
 
     /**
