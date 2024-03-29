@@ -1,5 +1,5 @@
 import React, {Fragment, useState} from 'react';
-import InputRange from 'react-input-range';
+// import InputRange from 'react-input-range';
 
 /**
  * Price Filter Widget
@@ -31,7 +31,7 @@ function PriceFilterWidget() {
                 <h3>Filter By Price</h3>
                 <div className="filter-price">
 
-                    <InputRange
+                    {/* <InputRange
                         draggableTrack
                         maxValue={rangeMaxVal}
                         minValue={0}
@@ -39,7 +39,7 @@ function PriceFilterWidget() {
                         onChange={value => HandleRangeVal(value)}
                         onChangeComplete={value => console.log(value)}
                         value={rangeVal}
-                    />
+                    /> */}
 
                     <form>
                         <div id="slider-range"/>
