@@ -9,6 +9,12 @@ class FileUploadService {
 
     const params = new URLSearchParams();
 
+    console.log('modelType:', modelType);
+    console.log('garmentType', garmentType);
+    if (modelType == '' || garmentType == '') {
+      alert('Please choose model type and garment type');
+      return 0;
+    }
     // Check if the selected model is "Upper"
     if (modelType == 'Half') {
         params.append('model_category', 0);
@@ -24,7 +30,7 @@ class FileUploadService {
     } else {
         params.append('garment_category', 2);
     }
-
+    console.log('params:', params);
     return http.post("/", formData, {
       headers: {
         "Content-Type": "multipart/form-data",

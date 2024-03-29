@@ -27,9 +27,9 @@ function ContactUs({ options }) {
     const [garmentPreview, setGarmentPreview] = useState(null);
 
     // State to hold the selected model type
-    const [selectedModelType, setSelectedModelType] = useState('');
+    const [selectedModelType, setSelectedModelType] = useState('Half');
     // State to hold the selected garment type
-    const [selectedGarmentType, setSelectedGarmentType] = useState('');
+    const [selectedGarmentType, setSelectedGarmentType] = useState('Upper');
 
     const handleModelChange = (event) => {
         setModel(event.target.files[0]);
@@ -132,7 +132,7 @@ function ContactUs({ options }) {
                                 <FilePreview previewImage={garmentPreview} />
                             </div>
                             <div className="contact-info">
-                                <TryOnImages modelType={selectedModelType} model={model} garment={garment} garmentType={selectedGarmentType}/>
+                                <TryOnImages modelType={selectedModelType} model={model} garmentType={selectedGarmentType} garment={garment}/>
                             </div>
                         </div>
                     </div>
