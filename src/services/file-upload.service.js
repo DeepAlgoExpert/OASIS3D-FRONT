@@ -1,7 +1,8 @@
-import http from "../http-common";
+import https from "../https-common";
+import measureAPI from "../https-measure-common";
 
 class FileUploadService {
-  upload(modelType, model, garmentType, garment, onUploadProgress) {
+  tryon(modelType, model, garmentType, garment, onUploadProgress) {
     let formData = new FormData();
 
     formData.append("model", model);
@@ -31,7 +32,7 @@ class FileUploadService {
         params.append('garment_category', 2);
     }
     console.log('params:', params);
-    return http.post("/", formData, {
+    return https.post("/", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
       },
@@ -40,8 +41,22 @@ class FileUploadService {
     });
   }
 
+  measure(modelType, model, garmentType, garment, onUploadProgress) {
+    let formData = new FormData();
+
+    formData.append("model", model);
+    formData.append("height", "178");
+
+    return measureAPI.post("/measure", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      onUploadProgress,
+    });
+  }
+
   getFiles() {
-    return http.get("/");
+    return https.get("/");
   }
 }
 

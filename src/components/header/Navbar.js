@@ -20,6 +20,9 @@ function Navbar({options}) {
                         <NavLink to="/">Home</NavLink>
                     </li>
                     <li>
+                        <NavLink to="/body-measurement" activeClassName="current-menu-item">Mobile Tailer</NavLink>
+                    </li>
+                    <li>
                         <NavLink to="/virtualfitting" activeClassName="current-menu-item">VirtualFittingRoom</NavLink>
                     </li>
                     <li><NavLink to="/about" activeClassName="current-menu-item">About</NavLink></li>

@@ -4,8 +4,8 @@ import Footer from '../../components/global/Footer';
 import Instagram from '../../components/global/Instagram';
 import Header from '../../components/header/Header';
 import PageTitle from '../../components/global/PageTitle';
-import FilePreview from "../../components/filepreview.component";
-import TryOnImages from "../../components/tryon.component";
+import FilePreview from "../../components/filepreview/filepreview.component";
+import TryOnImages from "../../components/tryon/tryon.component";
 
 
 /**
@@ -14,7 +14,7 @@ import TryOnImages from "../../components/tryon.component";
  * @returns {*}
  * @constructor
  */
-function ContactUs({ options }) {
+function VirtualFittingRoom({ options }) {
 
     const onSubmitForm = (e)=> {
         e.preventDefault();
@@ -145,4 +145,4 @@ function ContactUs({ options }) {
     );
 }
 
-export default ContactUs;
+export default VirtualFittingRoom;

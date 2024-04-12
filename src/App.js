@@ -9,6 +9,7 @@ import HttpsRedirect from 'react-https-redirect';
 import Preloader from './components/global/Preloader';
 import HomeDefault from './pages/home/Default';
 import VirtualTryOn from './pages/virtualTryOn/Tryon';
+import Measurement from './pages/measurement/measurement';
 import Style2 from './pages/home/Style2';
 import Style3 from './pages/home/Style3';
 import NotFound from './pages/404/NotFound';
@@ -126,6 +127,10 @@ function App() {
 
                         <Route exact path="/home">
                             <HomeDefault options={options}/>
+                        </Route>
+
+                        <Route exact path="/body-measurement">
+                            <Measurement options={options}/>
                         </Route>
 
                         <Route exact path="/virtualfitting">

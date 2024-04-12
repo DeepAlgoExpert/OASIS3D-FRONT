@@ -1,7 +1,9 @@
 import React, { Component } from "react";
-import UploadService from "../services/file-upload.service";
+import UploadService from "../../services/file-upload.service";
+import {OBJModel, AmbientLight, DirectionLight, OBJLoader} from 'react-3d-viewer';
+import ResponseTable from './responseTable'; // Import the ResponseTable component
 
-export default class TryOnImages extends Component  {
+export default class Measurement extends Component  {
   constructor(props) {
     super(props);
 
@@ -10,9 +12,9 @@ export default class TryOnImages extends Component  {
       progress: 0,
       message: "",
       error: null,
-      imageInfos: [],
+      obj_url: null,
       clicked:null,
-      imageData: null,
+      measurements: null,
     };
     
     this.upload = this.upload.bind(this)
@@ -24,22 +26,19 @@ export default class TryOnImages extends Component  {
       imageData: null,
     });
 
-    const { modelType, model, garmentType, garment } = this.props;
+    const { model } = this.props;
 
-    UploadService.upload(modelType, model, garmentType, garment, (event) => {
+    UploadService.measure(model, (event) => {
       //event.preventDefault(); // Prevent default form submission
       this.setState({
         progress: Math.round((100 * event.loaded) / event.total),
       });
     })
       .then((response) => {
-        this.setState({
-          message: response.data.message,
-        });
-        this.setState({ imageData: response.data });
-        this.setState({
-            progress: 0, clicked: 1,
-          });
+        this.setState({ message: response.data.message, 
+                        measurements: response.data.measurements,
+                        obj_url: response.data.obj_url,
+                        progress: 0, clicked: 1 });
       })
       .catch((err) => {
         this.setState({
@@ -50,9 +49,7 @@ export default class TryOnImages extends Component  {
 
    componentDidMount() {
         UploadService.getFiles().then((response) => {
-        this.setState({
-            imageInfos: response.data,
-        });
+        
         });
    }
    render() {
@@ -64,6 +61,8 @@ export default class TryOnImages extends Component  {
       clicked,
       imageData,
       imageInfos,
+      obj_url,
+      measurements
     } = this.state;
     
     
@@ -77,7 +76,7 @@ export default class TryOnImages extends Component  {
               className="btn btn-success btn-sm"
               onClick={this.upload}
             >
-              TryOn
+              Measure
             </button>
           </div>
         </div>
@@ -97,11 +96,16 @@ export default class TryOnImages extends Component  {
           </div>
         )}
 
-        {imageData && (
-          <img
-            src={`data:image/png;base64,${imageData}`}
-            alt="Uploaded Image"
-          />
+        {obj_url && (
+          <OBJModel src={obj_url} texPath="./src/lib/model/" scale={{x:0.2,y:0.2,z:0.20}} position={{x:0,y:0.1,z:0}} width={430} height={566}>
+            <AmbientLight color={0x000fff}/>
+            <DirectionLight color={0xffffff} position={{x:100,y:200,z:100}}/>
+            <DirectionLight color={0xff00ff} position={{x:-100,y:200,z:-100}}/>
+          </OBJModel>
+        )}
+
+        {measurements && (
+          <ResponseTable responseData={measurements} /> 
         )}
 
         {message && (

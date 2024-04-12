@@ -27,7 +27,7 @@ function HeaderLeft({options}) {
                             the window</p>
                         <ul className="info">
                             <li>Contact us: ++8801682530219</li>
-                            <li>Mail us: eoard@gmail.com</li>
+                            <li>Mail us: beaumarfdeep0821@gmail.com</li>
                         </ul>
                         <ul className="social-links">
                             <li><a href="#"><i className="ti-facebook"/></a></li>
@@ -37,12 +37,14 @@ function HeaderLeft({options}) {
                         </ul>
                     </div>
                 </div>
+                {/* 
                 <div className="search-area">
                     <form>
                         <button type="submit"><i className="fi flaticon-search"/></button>
                         <input type="text" placeholder="Search for.."/>
                     </form>
                 </div>
+                */}
             </div>
         </Fragment>
     );
