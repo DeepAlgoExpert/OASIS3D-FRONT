@@ -26,7 +26,7 @@ function Measurement({ options }) {
     const [modelPreview, setModelPreview] = useState(null);
 
     // State to hold height
-    const [height, setHeight] = useState('170');
+    const [height, setHeight] = useState('');
 
     const handleModelChange = (event) => {
         setModel(event.target.files[0]);
@@ -63,7 +63,7 @@ function Measurement({ options }) {
                             <div className="contact-info">
                                 <h3>Please upload your front photo captured by your phone or camera!</h3>
                                 <br/>
-                                <input type="text" name="name" id="name" value={height} placeholder="Height*" onChange={handleHeightChange} />
+                                <input type="text" name="name" id="name" value={height} placeholder="Height* for example:178" onChange={handleHeightChange} />
                                 <br/><br/>
                                 <input type="file" onChange={handleModelChange} />
                                 <FilePreview previewImage={modelPreview}/>   

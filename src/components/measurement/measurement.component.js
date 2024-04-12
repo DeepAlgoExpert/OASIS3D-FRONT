@@ -25,7 +25,9 @@ export default class Measurement extends Component  {
       progress: 0,
       imageData: null,
       obj_url: null,
-      measurements: null
+      measurements: null,
+      message: "",
+      error: null
     });
 
     const { model, height } = this.props;
