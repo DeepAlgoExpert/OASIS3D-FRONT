@@ -25,11 +25,18 @@ function Measurement({ options }) {
 
     const [modelPreview, setModelPreview] = useState(null);
 
+    // State to hold height
+    const [height, setHeight] = useState('170');
+
     const handleModelChange = (event) => {
         setModel(event.target.files[0]);
         setModelPreview(URL.createObjectURL(event.target.files[0]));
     };
 
+    // Function to handle change in select model type
+    const handleHeightChange = (event) => {
+        setHeight(event.target.value);
+    };
     /**
      * demo data
      */
@@ -40,31 +47,6 @@ function Measurement({ options }) {
         email_1: "beaumarfdeep0821@gmail.com",
         email_2: "beaumarfdeep0821@gmail.com",
         time: "10AM - 5 PM, Sunday closed"
-    };
-
-    const responseData = {
-        "Bust Height": 129.4720855972628,
-        "Neck to Floor": 151.41881201172603,
-        "Shoulder to Waist (Back)": 38.71692834110742,
-        "Shoulder to Waist (Front)": 43.67089117774894,
-        "Waist to Floor": 107.5894186908198,
-        "ankle left circumference": 23.854194343474113,
-        "arm right length": 53.02302623465265,
-        "bicep right circumference": 29.188039852534377,
-        "calf left circumference": 36.83631416998882,
-        "chest circumference": 103.93802276507385,
-        "forearm right circumference": 25.864086416698143,
-        "height": 176.2,
-        "hip circumference": 105.49742008336779,
-        "hip height": 88.13892778559031,
-        "inside leg height": 74.73150036020571,
-        "neck circumference": 37.75425409906571,
-        "shoulder breadth": 36.466145139921686,
-        "shoulder to crotch height": 66.52553841608635,
-        "thigh left circumference": 50.05567723026238,
-        "under chest circumference": 89.33445309414537,
-        "waist circumference": 89.8359384532222,
-        "wrist right circumference": 17.54122961837685
     };
 
     return (
@@ -81,12 +63,14 @@ function Measurement({ options }) {
                             <div className="contact-info">
                                 <h3>Please upload your front photo captured by your phone or camera!</h3>
                                 <br/>
+                                <input type="text" name="name" id="name" value={height} placeholder="Height*" onChange={handleHeightChange} />
+                                <br/><br/>
                                 <input type="file" onChange={handleModelChange} />
-                                <FilePreview previewImage={modelPreview} />   
+                                <FilePreview previewImage={modelPreview}/>   
                             </div>
                             <div className="contact-form-col">
                                 <h3>3D Body Preview</h3>
-                                <Measure model={model}/>
+                                <Measure model={model}  height={height}/>
                             </div>
                         </div>
                         <div className="col col-lg-10 col-lg-offset-1">

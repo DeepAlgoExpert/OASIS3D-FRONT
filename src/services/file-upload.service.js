@@ -41,11 +41,11 @@ class FileUploadService {
     });
   }
 
-  measure(model, onUploadProgress) {
+  measure(model, height, onUploadProgress) {
     let formData = new FormData();
 
     formData.append("model", model);
-    formData.append("height", "178");
+    formData.append("height", height);
 
     return measureAPI.post("/measure", formData, {
       headers: {

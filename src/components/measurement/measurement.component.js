@@ -24,11 +24,13 @@ export default class Measurement extends Component  {
     this.setState({
       progress: 0,
       imageData: null,
+      obj_url: null,
+      measurements: null
     });
 
-    const { model } = this.props;
+    const { model, height } = this.props;
 
-    UploadService.measure(model, (event) => {
+    UploadService.measure(model, height, (event) => {
       //event.preventDefault(); // Prevent default form submission
       this.setState({
         progress: Math.round((100 * event.loaded) / event.total),
