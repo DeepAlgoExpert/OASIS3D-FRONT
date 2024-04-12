@@ -41,7 +41,7 @@ class FileUploadService {
     });
   }
 
-  measure(modelType, model, garmentType, garment, onUploadProgress) {
+  measure(model, onUploadProgress) {
     let formData = new FormData();
 
     formData.append("model", model);
