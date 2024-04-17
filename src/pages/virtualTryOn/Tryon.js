@@ -89,10 +89,10 @@ function VirtualFittingRoom({ options }) {
                                 </ul>
                             </div>
                             <div className="contact-form-col">
-                                <h2>Let’s choose model type and garment type</h2>
+                                <h2>Let’s choose garment type</h2>
                                 <div className="contact-form">
                                     <form method="post" className="contact-validation-active" id="contact-form-main">
-                                        <div className="fullwidth">
+                                        <div className="fullwidth hidden">
                                             <select name="model-type" value={selectedModelType} onChange={handleSelectChangeModelType}>
                                                 <option disabled="disabled">Model type</option>
                                                 <option>Half</option>
