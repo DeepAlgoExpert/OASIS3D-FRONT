@@ -85,12 +85,15 @@ h1 {
   min-height: 25rem;
   border: 2px solid var(--border-color);
   display: flex;
-  justify-content: space-between;
   flex-direction: column;
   align-items: center;
   gap: 4rem;
   background: #fff;
   border-radius: 2rem;
+}
+
+.tab__content .w-100{
+ width: 100%;
 }
 
 .tab__content img {
@@ -128,10 +131,6 @@ h1 {
   .tab__container {
     width: 100%;
     padding: 2rem;
-  }
-
-  .tab__content img {
-    max-width: 150px;
   }
 
   .tab__content p {

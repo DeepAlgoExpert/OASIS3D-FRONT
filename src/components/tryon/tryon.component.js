@@ -14,9 +14,10 @@ export default class TryOnImages extends Component  {
       clicked:null,
       imageData: null,
     };
-    const {modelPreview } = this.props;
-    this.setState({ modelPreview: modelPreview });
+    const {model} = this.props;
+    this.setState({ modelPreview: model });
     this.upload = this.upload.bind(this)
+    console.log(model)
   }
   
   upload() {
@@ -50,8 +51,8 @@ export default class TryOnImages extends Component  {
    }
 
    componentDidMount() {
-        const {modelPreview } = this.props;
-        this.setState({ modelPreview: modelPreview });
+        const {model } = this.props;
+        this.setState({ modelPreview: model });
         UploadService.getFiles().then((response) => {
         this.setState({
             imageInfos: response.data,
@@ -71,7 +72,7 @@ export default class TryOnImages extends Component  {
     } = this.state;
     
     return (
-      <div className="d-flex justify-content-between text-center">
+      <div className="d-flex flex-column text-center w-100">
         <button
           type = "button"
           className="btn btn-success btn-sm"
@@ -101,8 +102,10 @@ export default class TryOnImages extends Component  {
             {message}
           </div> 
         )}
-        <img src={modelPreview} alt="Pet" />
-        <img src={imageData? `data:image/png;base64,${imageData}`: "/assets/images/try-on/3.jpg"} alt="Pet" />
+        <div className="d-flex text-center w-100">
+          <img src={modelPreview} alt="Pet" />
+          <img src={imageData? `data:image/png;base64,${imageData}`: "/assets/images/try-on/3.jpg"} alt="Pet" />
+        </div>
       </div>
     );
   }

@@ -113,7 +113,7 @@ function VirtualFittingRoom({ options }) {
                                 vtoData={vtoData}
                             />
                             <div className="tab__container ">
-                                <div className="tab__content d-flex justify-content-center">
+                                <div className="tab__content d-flex">
                                     <p> {vtoData[activeTab].fact}</p>
                                     { activeTab==0 &&                                       
                                         < ReactImagePickerEditor
@@ -140,7 +140,6 @@ function VirtualFittingRoom({ options }) {
                                             model={model} 
                                             garmentType={selectedGarmentType} 
                                             garment={garment} 
-                                            modelPreview={modelPreview}
                                         />
                                     }
                                 </div>
