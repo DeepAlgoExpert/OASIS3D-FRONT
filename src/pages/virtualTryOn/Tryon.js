@@ -1,5 +1,9 @@
 import React, {Fragment} from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import ReactImagePickerEditor, { ImagePickerConf } from 'react-image-picker-editor';
+import 'react-image-picker-editor/dist/index.css'
+import Select from "react-dropdown-select";
+
 import Footer from '../../components/global/Footer';
 import Instagram from '../../components/global/Instagram';
 import Header from '../../components/header/Header';
@@ -23,6 +27,31 @@ function VirtualFittingRoom({ options }) {
         e.preventDefault();
     };
 
+    const config2 = {
+        borderRadius: '8px',
+        language: 'en',
+        //width: '50%',
+        width: '330px',
+        aspectRatio: 0.75,
+        objectFit: 'fill',
+        compressInitial: null,
+    };
+
+    const garmentOptions = [
+        {
+          value: 1,
+          label: 'Upper'
+        },
+        {
+          value: 2,
+          label: 'Lower'
+        },
+        {
+            value: 3,
+            label: 'Dress'
+        }
+    ];
+
     const vtoData = [
         {
           title: "User Image",
@@ -43,9 +72,8 @@ function VirtualFittingRoom({ options }) {
       ];
 
     const [activeTab, setActiveTab] = useState(0);
-
-    const [model, setModel] = useState(null);
-    const [garment, setGarment] = useState(null);
+    const [model, setModel] = useState('');
+    const [garment, setGarment] = useState('');
 
     const [modelPreview, setModelPreview] = useState('/assets/images/try-on/1.jpg');
     const [garmentPreview, setGarmentPreview] = useState('/assets/images/try-on/2.jpg');
@@ -54,26 +82,6 @@ function VirtualFittingRoom({ options }) {
     const [selectedModelType, setSelectedModelType] = useState('Half');
     // State to hold the selected garment type
     const [selectedGarmentType, setSelectedGarmentType] = useState('Upper');
-
-    const handleModelChange = (event) => {
-        setModel(event.target.files[0]);
-        setModelPreview(URL.createObjectURL(event.target.files[0]));
-    };
-
-    const handleGarmentChange = (event) => {
-        setGarment(event.target.files[0]);
-        setGarmentPreview(URL.createObjectURL(event.target.files[0]));
-    };
-    
-    // Function to handle change in select model type
-    const handleSelectChangeModelType = (event) => {
-        setSelectedModelType(event.target.value);
-    };
-
-    // Function to handle change in select model type
-     const handleSelectChangeGarmentType = (event) => {
-        setSelectedGarmentType(event.target.value);
-    };
 
     /**
      * demo data
@@ -105,30 +113,25 @@ function VirtualFittingRoom({ options }) {
                                 vtoData={vtoData}
                             />
                             <div className="tab__container ">
-                                <div className="tab__content">
+                                <div className="tab__content d-flex justify-content-center">
                                     <p> {vtoData[activeTab].fact}</p>
                                     { activeTab==0 &&                                       
-                                        <>
-                                            <input type="file" id={activeTab} onChange={activeTab==0 ? handleModelChange: handleGarmentChange} />
-                                            <img src={ activeTab==0 ? modelPreview: garmentPreview} alt="Pet" />
-
-                                        </>
+                                        < ReactImagePickerEditor
+                                            config={config2}
+                                            imageSrcProp={model}
+                                            imageChanged={(newDataUri) => { setModel(newDataUri) }} />
                                     }
 
                                     { activeTab==1 &&                                       
                                         <>
-                                            <div className="row">
-                                                <div className='col'>
-                                                    <select className="form-select" name="garment type" value={selectedGarmentType} onChange={handleSelectChangeGarmentType}>
-                                                        <option disabled="disabled">Garment type</option>
-                                                        <option>Upper</option>
-                                                        <option>Lower</option>
-                                                        <option>Dress</option>
-                                                    </select>
-                                                    <input type="file" id={activeTab} onChange={activeTab==0 ? handleModelChange: handleGarmentChange} />
-                                                </div>
-                                            </div>
-                                            <img src={ activeTab==0 ? modelPreview: garmentPreview} alt="Pet" />
+                                            <Select 
+                                                options={garmentOptions}
+                                                placeholder='Upper'
+                                                onChange={(values) => setSelectedGarmentType(values[0].label)} />
+                                            < ReactImagePickerEditor
+                                                config={config2}
+                                                imageSrcProp={garment}
+                                                imageChanged={(newDataUri) => { setGarment(newDataUri) }} />
                                         </>
                                     }
                                     { activeTab==2 &&
