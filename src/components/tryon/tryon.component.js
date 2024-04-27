@@ -81,7 +81,7 @@ export default class TryOnImages extends Component  {
         </button>
 
 
-        {imageData==null && (
+        {(
           <div className="progress my-3">
             <div
               className="progress-bar progress-bar-info progress-bar-striped"
