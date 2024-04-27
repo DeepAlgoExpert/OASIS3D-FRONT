@@ -96,13 +96,6 @@ export default class TryOnImages extends Component  {
           </div>
         )}
 
-        {imageData && (
-          <img
-            src={`data:image/png;base64,${imageData}`}
-            alt="Uploaded Image"
-          />
-        )}
-
         {message && (
           <div className="alert alert-secondary mt-3" role="alert">
             {message}
