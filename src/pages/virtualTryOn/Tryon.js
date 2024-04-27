@@ -6,7 +6,10 @@ import Header from '../../components/header/Header';
 import PageTitle from '../../components/global/PageTitle';
 import FilePreview from "../../components/filepreview/filepreview.component";
 import TryOnImages from "../../components/tryon/tryon.component";
+import TabButtons from "../../components/tryon/tabbutton.component";
+import TabContent from "../../components/tryon/tabcontent.component";
 
+import "./tryon.css";
 
 /**
  * ContactUs page
@@ -20,11 +23,32 @@ function VirtualFittingRoom({ options }) {
         e.preventDefault();
     };
 
+    const vtoData = [
+        {
+          title: "User Image",
+          fact: "Please upload your front photo captured phone or camera!",
+          image: "/assets/images/try-on/1.jpg",
+        },
+        {
+          title: "Garment Image",
+          fact: "Please upload the garment image you are trying to wear!",
+          image: "/assets/images/try-on/2.jpg",
+        },
+        {
+          title: "Virtual Try On",
+          fact: "Your virtual fitting result. Have fun!",
+          image: "/assets/images/try-on/3.jpg",
+          result: "/assets/images/try-on/3.jpg"
+        },
+      ];
+
+    const [activeTab, setActiveTab] = useState(0);
+
     const [model, setModel] = useState(null);
     const [garment, setGarment] = useState(null);
 
-    const [modelPreview, setModelPreview] = useState(null);
-    const [garmentPreview, setGarmentPreview] = useState(null);
+    const [modelPreview, setModelPreview] = useState('/assets/images/try-on/1.jpg');
+    const [garmentPreview, setGarmentPreview] = useState('/assets/images/try-on/2.jpg');
 
     // State to hold the selected model type
     const [selectedModelType, setSelectedModelType] = useState('Half');
@@ -73,41 +97,49 @@ function VirtualFittingRoom({ options }) {
             <section className="contact-section contact-pg-section section-padding">
                 <div className="container-1410">
                     <div className="row">
-                        <div className="col col-lg-10 col-lg-offset-1">
-                            <div className="contact-info">
-                                <ul>
-                                    <li>
-                                        <i className="pe-7s-mail"/>
-                                        <h4>Email us</h4>
-                                        <p>{contactUsData.email_1} <br/>{contactUsData.email_2}</p>
-                                    </li>
-                                    <li>
-                                        <i className="pe-7s-alarm"/>
-                                        <h4>Office time</h4>
-                                        <p>{contactUsData.time}</p>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div className="contact-form-col">
-                                <h2>Let’s choose garment type</h2>
-                                <div className="contact-form">
-                                    <form method="post" className="contact-validation-active" id="contact-form-main">
-                                        <div className="fullwidth hidden">
-                                            <select name="model-type" value={selectedModelType} onChange={handleSelectChangeModelType}>
-                                                <option disabled="disabled">Model type</option>
-                                                <option>Half</option>
-                                                <option>Full</option>
-                                            </select>
-                                        </div>
-                                        <div className="fullwidth">
-                                            <select name="garment type" value={selectedGarmentType} onChange={handleSelectChangeGarmentType}>
-                                                <option disabled="disabled">Garment type</option>
-                                                <option>Upper</option>
-                                                <option>Lower</option>
-                                                <option>Dress</option>
-                                            </select>
-                                        </div>
-                                    </form>
+                        <div className="main__container">
+                            <h1>Virtual Fitting Process</h1>
+                            <TabButtons
+                                activeTab={activeTab}
+                                setActiveTab={setActiveTab}
+                                vtoData={vtoData}
+                            />
+                            <div className="tab__container ">
+                                <div className="tab__content">
+                                    <p> {vtoData[activeTab].fact}</p>
+                                    { activeTab==0 &&                                       
+                                        <>
+                                            <input type="file" id={activeTab} onChange={activeTab==0 ? handleModelChange: handleGarmentChange} />
+                                            <img src={ activeTab==0 ? modelPreview: garmentPreview} alt="Pet" />
+
+                                        </>
+                                    }
+
+                                    { activeTab==1 &&                                       
+                                        <>
+                                            <div className="row">
+                                                <div className='col'>
+                                                    <select className="form-select" name="garment type" value={selectedGarmentType} onChange={handleSelectChangeGarmentType}>
+                                                        <option disabled="disabled">Garment type</option>
+                                                        <option>Upper</option>
+                                                        <option>Lower</option>
+                                                        <option>Dress</option>
+                                                    </select>
+                                                    <input type="file" id={activeTab} onChange={activeTab==0 ? handleModelChange: handleGarmentChange} />
+                                                </div>
+                                            </div>
+                                            <img src={ activeTab==0 ? modelPreview: garmentPreview} alt="Pet" />
+                                        </>
+                                    }
+                                    { activeTab==2 &&
+                                        <TryOnImages 
+                                            modelType={selectedModelType} 
+                                            model={model} 
+                                            garmentType={selectedGarmentType} 
+                                            garment={garment} 
+                                            modelPreview={modelPreview}
+                                        />
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -116,29 +148,6 @@ function VirtualFittingRoom({ options }) {
             </section>
             {/* end contact-section-s3 */}
 
-
-
-            {/* start contact-section */}
-            <section className="contact-section contact-pg-section section-padding">
-                <div className="container-1410">
-                    <div className="row">
-                        <div className="col col-lg-16 col-lg-offset-1">
-                            <div className="contact-info">
-                                <input type="file" onChange={handleModelChange} />
-                                <FilePreview previewImage={modelPreview} />   
-                            </div>
-                            <div className="contact-info">
-                                <input type="file" onChange={handleGarmentChange} /> 
-                                <FilePreview previewImage={garmentPreview} />
-                            </div>
-                            <div className="contact-info">
-                                <TryOnImages modelType={selectedModelType} model={model} garmentType={selectedGarmentType} garment={garment}/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            {/* end contact-section-s3 */}
             <Instagram/>
             <Footer/>
         </Fragment>

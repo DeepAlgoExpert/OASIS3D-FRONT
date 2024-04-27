@@ -14,7 +14,8 @@ export default class TryOnImages extends Component  {
       clicked:null,
       imageData: null,
     };
-    
+    const {modelPreview } = this.props;
+    this.setState({ modelPreview: modelPreview });
     this.upload = this.upload.bind(this)
   }
   
@@ -49,6 +50,8 @@ export default class TryOnImages extends Component  {
    }
 
    componentDidMount() {
+        const {modelPreview } = this.props;
+        this.setState({ modelPreview: modelPreview });
         UploadService.getFiles().then((response) => {
         this.setState({
             imageInfos: response.data,
@@ -64,23 +67,19 @@ export default class TryOnImages extends Component  {
       clicked,
       imageData,
       imageInfos,
+      modelPreview,
     } = this.state;
     
-    
-
     return (
-      <div>
-        <div className="row">
-          <div className="col-4">
-            <button
-              type = "button"
-              className="btn btn-success btn-sm"
-              onClick={this.upload}
-            >
-              TryOn
-            </button>
-          </div>
-        </div>
+      <div className="d-flex justify-content-between text-center">
+        <button
+          type = "button"
+          className="btn btn-success btn-sm"
+          onClick={this.upload}
+        >
+          TryOn
+        </button>
+
 
         {imageData==null && (
           <div className="progress my-3">
@@ -109,6 +108,8 @@ export default class TryOnImages extends Component  {
             {message}
           </div> 
         )}
+        <img src={modelPreview} alt="Pet" />
+        <img src={imageData? `data:image/png;base64,${imageData}`: "/assets/images/try-on/3.jpg"} alt="Pet" />
       </div>
     );
   }
