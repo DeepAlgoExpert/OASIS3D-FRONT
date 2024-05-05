@@ -40,11 +40,11 @@ function VirtualFittingRoom({ options }) {
     const garmentOptions = [
         {
           value: 1,
-          label: 'Upper'
+          label: 'Upper-body'
         },
         {
           value: 2,
-          label: 'Lower'
+          label: 'Lower-body'
         },
         {
             value: 3,
@@ -83,6 +83,14 @@ function VirtualFittingRoom({ options }) {
     // State to hold the selected garment type
     const [selectedGarmentType, setSelectedGarmentType] = useState('Upper');
 
+    const handleModelChange = (event) => {
+        setModel(event.target.files[0]);
+    };
+
+    const handleGarmentChange = (event) => {
+        setGarment(event.target.files[0]);
+    };
+
     /**
      * demo data
      */
@@ -119,7 +127,8 @@ function VirtualFittingRoom({ options }) {
                                         < ReactImagePickerEditor
                                             config={config2}
                                             imageSrcProp={model}
-                                            imageChanged={(newDataUri) => { setModel(newDataUri) }} />
+                                            imageChanged={(newDataUri) => { setModel(newDataUri) }} 
+                                            />
                                     }
 
                                     { activeTab==1 &&                                       
@@ -131,7 +140,8 @@ function VirtualFittingRoom({ options }) {
                                             < ReactImagePickerEditor
                                                 config={config2}
                                                 imageSrcProp={garment}
-                                                imageChanged={(newDataUri) => { setGarment(newDataUri) }} />
+                                                imageChanged={(newDataUri) => { setGarment(newDataUri) }} 
+                                                />
                                         </>
                                     }
                                     { activeTab==2 &&

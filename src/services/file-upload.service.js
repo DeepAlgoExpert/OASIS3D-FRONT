@@ -2,41 +2,26 @@ import https from "../https-common";
 import measureAPI from "../https-measure-common";
 
 class FileUploadService {
+  base64ToBlob(base64String, contentType) {
+    const byteCharacters = btoa(base64String);
+    const byteNumbers = new Array(byteCharacters.length);
+    for (let i = 0; i < byteCharacters.length; i++) {
+        byteNumbers[i] = byteCharacters.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: contentType });
+  }
+
   tryon(modelType, model, garmentType, garment, onUploadProgress) {
-    let formData = new FormData();
 
-    formData.append("model", model);
-    formData.append("garment", garment);
-
-    const params = new URLSearchParams();
-
-    console.log('modelType:', modelType);
-    console.log('garmentType', garmentType);
-    if (modelType == '' || garmentType == '') {
-      alert('Please choose model type and garment type');
-      return 0;
-    }
-    // Check if the selected model is "Upper"
-    if (modelType == 'Half') {
-        params.append('model_category', 0);
-    } else {
-        params.append('model_category', 1);
-    }
-
-    // Check if the selected model is "Upper"
-    if (garmentType == 'Upper') {
-        params.append('garment_category', 0);
-    } else if (garmentType=='Lower') {
-        params.append('garment_category', 1);
-    } else {
-        params.append('garment_category', 2);
-    }
-    console.log('params:', params);
-    return https.post("/", formData, {
+    return https.post("/", {
       headers: {
         "Content-Type": "multipart/form-data",
       },
-      params: params, // Include params in the request
+      model: model,
+      garment: garment,
+      modelType: modelType,
+      garmentType: garmentType,
       onUploadProgress,
     });
   }
@@ -46,7 +31,8 @@ class FileUploadService {
 
     formData.append("model", model);
     formData.append("height", height);
-
+    console.log('model-height:', formData);
+    console.log('model::', model)
     return measureAPI.post("/measure", formData, {
       headers: {
         "Content-Type": "multipart/form-data",
