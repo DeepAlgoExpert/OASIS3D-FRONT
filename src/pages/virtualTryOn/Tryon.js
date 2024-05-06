@@ -124,7 +124,7 @@ function VirtualFittingRoom({ options }) {
                             <div className="video-form-col">
                                 <video class="elementor-video" 
                                     width="440" height="660"
-                                    src="assets/videos/tryon.mov" 
+                                    src="https://styleshifter.app/wp-content/uploads/2024/03/IMG_9804.mov" 
                                     autoPlay loop muted="muted" playsinline="" controlslist="nodownload">
                                 </video>
                             </div>
