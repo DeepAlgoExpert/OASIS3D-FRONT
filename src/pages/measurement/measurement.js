@@ -150,7 +150,7 @@ function Measurement({ options }) {
                                             
                                                 {objState && (
                                                     <div className='d-flex justify-content-center align-items-center' id='body-obj'>
-                                                        <OBJModel src={objState} texPath="./src/lib/model/" scale={{x:0.2,y:0.2,z:0.20}} position={{x:0,y:0.1,z:0}} width={530} height={766}>
+                                                        <OBJModel src={objState} texPath="./src/lib/model/" scale={{x:0.2,y:0.2,z:0.20}} position={{x:0,y:0.1,z:0}} width={560} height={766}>
                                                             <AmbientLight color={0x000fff}/>
                                                             <DirectionLight color={0xffffff} position={{x:100,y:200,z:100}}/>
                                                             <DirectionLight color={0xff00ff} position={{x:-100,y:200,z:-100}}/>

@@ -116,12 +116,6 @@ export default class Measurement extends Component  {
             data-testid="loader"
           />
         </div>
-
-        {message && (
-          <div className="alert alert-secondary mt-3" role="alert">
-            {message}
-          </div> 
-        )}
       </div>
     );
   }
