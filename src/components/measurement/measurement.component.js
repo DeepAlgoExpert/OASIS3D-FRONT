@@ -36,6 +36,8 @@ export default class Measurement extends Component  {
       error: null
     });
 
+    this.props.onData(null, null);
+    
     const { model, height, objUrl } = this.props;
 
     UploadService.measure(model, height, (event) => {
@@ -50,7 +52,7 @@ export default class Measurement extends Component  {
                         obj_url: response.data.obj_url,
                         progress: 0, clicked: 1 });
         // Call the callback function to send data to parent
-        this.props.onData(response.data);
+        this.props.onData(response.data.measurements, response.data.obj_url);
       })
       .catch((err) => {
         this.setState({
