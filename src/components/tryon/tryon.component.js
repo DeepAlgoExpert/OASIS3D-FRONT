@@ -17,8 +17,8 @@ export default class TryOnImages extends Component  {
     const {model} = this.props;
     this.setState({ modelPreview: model });
 
-    const {imageData} = this.props;
-    this.setState({ imageData: imageData });
+    const {vtoImage} = this.props;
+    this.setState({ imageData: vtoImage });
 
     this.upload = this.upload.bind(this)
   }
