@@ -4,7 +4,6 @@ import './styles.css'; // Import the CSS file
 const ResponseTable = ({ responseData }) => {
   return (
     <div>
-      <h2>Measurement Data</h2>
       <table>
         <thead>
           <tr>

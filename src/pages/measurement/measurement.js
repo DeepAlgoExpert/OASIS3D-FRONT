@@ -82,6 +82,7 @@ function Measurement({ options }) {
     // State to hold height
     const [height, setHeight] = useState('');
     const [measureState, setMeasureState] = useState('');
+    const [objState, setObjState] = useState('');
 
     const handleModelChange = (event) => {
         setModel(event.target.files[0]);
@@ -94,7 +95,8 @@ function Measurement({ options }) {
     };
 
     const handleMeasureData = (dataFromChild) => {
-        setMeasureState(dataFromChild);
+        setMeasureState(dataFromChild.measurements);
+        setObjState(dataFromChild.obj_url);
       };
     /**
      * demo data
@@ -143,7 +145,7 @@ function Measurement({ options }) {
 
                                     { activeTab==1 &&                                       
                                         <>
-                                            <Measure model={model}  height={height} onData={handleMeasureData}/>
+                                            <Measure model={model}  height={height} objUrl={objState} onData={handleMeasureData}/>
                                         </>
                                     }
                                     { activeTab==2 &&

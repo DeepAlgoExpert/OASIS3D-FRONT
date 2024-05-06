@@ -16,6 +16,12 @@ export default class Measurement extends Component  {
       clicked:null,
       measurements: null,
     };
+
+    const { objUrl } = this.props;
+
+    this.setState({
+      obj_url: objUrl
+    });
     
     this.upload = this.upload.bind(this)
   }
@@ -30,7 +36,7 @@ export default class Measurement extends Component  {
       error: null
     });
 
-    const { model, height } = this.props;
+    const { model, height, objUrl } = this.props;
 
     UploadService.measure(model, height, (event) => {
       //event.preventDefault(); // Prevent default form submission
@@ -44,7 +50,7 @@ export default class Measurement extends Component  {
                         obj_url: response.data.obj_url,
                         progress: 0, clicked: 1 });
         // Call the callback function to send data to parent
-        this.props.onData(response.data.measurements);
+        this.props.onData(response.data);
       })
       .catch((err) => {
         this.setState({
@@ -99,7 +105,7 @@ export default class Measurement extends Component  {
           </div>
         )}
 
-        {(
+        {obj_url && (
           <div className="text-center">
             <OBJModel src={obj_url} texPath="./src/lib/model/" scale={{x:0.2,y:0.2,z:0.20}} position={{x:0,y:0.1,z:0}} width={430} height={566}>
               <AmbientLight color={0x000fff}/>
