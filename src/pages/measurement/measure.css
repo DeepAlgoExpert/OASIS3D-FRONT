@@ -137,6 +137,10 @@ h1 {
   width: min-content;
 }
 
+#3d-obj{
+  padding-left: 28%;
+}
+
 @media screen and (max-width: 1000px) {
   .main__container {
     gap: 2rem;
