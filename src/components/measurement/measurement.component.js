@@ -2,6 +2,13 @@ import React, { Component } from "react";
 import UploadService from "../../services/file-upload.service";
 import {OBJModel, AmbientLight, DirectionLight, OBJLoader} from 'react-3d-viewer';
 import ResponseTable from './responseTable'; // Import the ResponseTable component
+import RiseLoader from "react-spinners/RiseLoader";
+
+const override = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
 
 export default class Measurement extends Component  {
   constructor(props) {
@@ -15,6 +22,7 @@ export default class Measurement extends Component  {
       obj_url: null,
       clicked:null,
       measurements: null,
+      loading: false,
     };
 
     const { objUrl } = this.props;
@@ -33,7 +41,8 @@ export default class Measurement extends Component  {
       obj_url: null,
       measurements: null,
       message: "",
-      error: null
+      error: null,
+      loading: true,
     });
 
     this.props.onData(null, null);
@@ -76,7 +85,8 @@ export default class Measurement extends Component  {
       imageData,
       imageInfos,
       obj_url,
-      measurements
+      measurements,
+      loading,
     } = this.state;
     
     
@@ -84,28 +94,28 @@ export default class Measurement extends Component  {
     return (
       <div className="w-100">
         <div className="text-center">
-          <button
-            type = "button"
-            className="btn btn-success btn-sm"
-            onClick={this.upload}
-          >
-            Measure
-          </button>
+          {!loading && (<button
+              type = "button"
+              className="btn btn-success btn-sm"
+              onClick={this.upload}
+              >
+              TryOn
+            </button>)
+          }
         </div>
-        {imageData==null && (
-          <div className="progress my-3">
-            <div
-              className="progress-bar progress-bar-info progress-bar-striped"
-              role="progressbar"
-              aria-valuenow={progress}
-              aria-valuemin="0"
-              aria-valuemax="100"
-              style={{ width: progress + "%" }}
-            >
-              {progress}%
-            </div>
-          </div>
-        )}
+        
+        <div className="sweet-loading text-center">
+          <RiseLoader
+            cssOverride={override}
+            size={20}
+            color={"#9eb25d"}
+            loading={this.state.loading}
+            speedMultiplier={1.5}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+
         {message && (
           <div className="alert alert-secondary mt-3" role="alert">
             {message}
