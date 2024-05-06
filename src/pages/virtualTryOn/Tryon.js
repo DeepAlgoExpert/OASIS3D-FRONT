@@ -70,6 +70,7 @@ function VirtualFittingRoom({ options }) {
     const [activeTab, setActiveTab] = useState(0);
     const [model, setModel] = useState('');
     const [garment, setGarment] = useState('');
+    const [resultState, setResultState] = useState(null);
 
     const [modelPreview, setModelPreview] = useState('/assets/images/try-on/1.jpg');
     const [garmentPreview, setGarmentPreview] = useState('/assets/images/try-on/2.jpg');
@@ -78,6 +79,10 @@ function VirtualFittingRoom({ options }) {
     const [selectedModelType, setSelectedModelType] = useState('Half');
     // State to hold the selected garment type
     const [selectedGarmentType, setSelectedGarmentType] = useState('Upper');
+
+    const handleVtoData = (imageData) => {
+        setResultState(imageData);
+      };
 
     /**
      * demo data
@@ -177,7 +182,9 @@ function VirtualFittingRoom({ options }) {
                                             modelType={selectedModelType} 
                                             model={model} 
                                             garmentType={selectedGarmentType} 
-                                            garment={garment} 
+                                            garment={garment}
+                                            onData={handleVtoData} 
+                                            vtoImage={resultState}
                                         />
                                     }
                                 </div>

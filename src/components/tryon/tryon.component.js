@@ -16,8 +16,11 @@ export default class TryOnImages extends Component  {
     };
     const {model} = this.props;
     this.setState({ modelPreview: model });
+
+    const {imageData} = this.props;
+    this.setState({ imageData: imageData });
+
     this.upload = this.upload.bind(this)
-    console.log(model)
   }
   
   upload() {
@@ -25,6 +28,8 @@ export default class TryOnImages extends Component  {
       progress: 0,
       imageData: null,
     });
+
+    this.props.onData(null);
 
     const { modelType, model, garmentType, garment } = this.props;
 
@@ -42,6 +47,7 @@ export default class TryOnImages extends Component  {
         this.setState({
             progress: 0, clicked: 1,
           });
+        this.props.onData(response.data);
       })
       .catch((err) => {
         this.setState({
