@@ -12,6 +12,7 @@ import Select from "react-dropdown-select";
 
 import TabButtons from "../../components/measurement/tabbutton.component";
 import TabContent from "../../components/tryon/tabcontent.component";
+import ResponseTable from './responseTable'; // Import the ResponseTable component
 
 import "./measure.css";
 
@@ -80,6 +81,7 @@ function Measurement({ options }) {
 
     // State to hold height
     const [height, setHeight] = useState('');
+    const [measureState, setMeasureState] = useState('');
 
     const handleModelChange = (event) => {
         setModel(event.target.files[0]);
@@ -90,6 +92,10 @@ function Measurement({ options }) {
     const handleHeightChange = (event) => {
         setHeight(event.target.value);
     };
+
+    const handleMeasureData = (dataFromChild) => {
+        setMeasureState(dataFromChild);
+      };
     /**
      * demo data
      */
@@ -137,12 +143,14 @@ function Measurement({ options }) {
 
                                     { activeTab==1 &&                                       
                                         <>
-                                            <Measure model={model}  height={height}/>
+                                            <Measure model={model}  height={height} onData={handleMeasureData}/>
                                         </>
                                     }
                                     { activeTab==2 &&
                                         <>
-                                            
+                                            {measureState && (
+                                                <ResponseTable responseData={measureState} /> 
+                                                )}
                                         </>
                                     }
                                 </div>
