@@ -78,7 +78,7 @@ export default class TryOnImages extends Component  {
     } = this.state;
     
     return (
-      <div className="d-flex flex-column text-center w-100">
+      <>
         <button
           type = "button"
           className="btn btn-success btn-sm"
@@ -86,7 +86,6 @@ export default class TryOnImages extends Component  {
         >
           TryOn
         </button>
-
 
         {(
           <div className="progress my-3">
@@ -108,11 +107,7 @@ export default class TryOnImages extends Component  {
             {message}
           </div> 
         )}
-        <div className="d-flex text-center w-100">
-          <img src={modelPreview} alt="Pet" />
-          <img src={imageData? `data:image/png;base64,${imageData}`: "/assets/images/try-on/3.jpg"} alt="Pet" />
-        </div>
-      </div>
+      </>
     );
   }
 }

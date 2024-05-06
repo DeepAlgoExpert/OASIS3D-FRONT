@@ -177,15 +177,21 @@ function VirtualFittingRoom({ options }) {
                                                 />
                                         </>
                                     }
-                                    { activeTab==2 &&
-                                        <TryOnImages 
-                                            modelType={selectedModelType} 
-                                            model={model} 
-                                            garmentType={selectedGarmentType} 
-                                            garment={garment}
-                                            onData={handleVtoData} 
-                                            vtoImage={resultState}
-                                        />
+                                    { activeTab==2 && 
+                                        <div className="d-flex flex-column text-center w-100">
+                                            <TryOnImages 
+                                                modelType={selectedModelType} 
+                                                model={model} 
+                                                garmentType={selectedGarmentType} 
+                                                garment={garment}
+                                                onData={handleVtoData} 
+                                                vtoImage={resultState}
+                                            />
+                                            <div className="d-flex text-center w-100">
+                                                <img src={model} alt="Pet" />
+                                                <img src={resultState? `data:image/png;base64,${resultState}`: "/assets/images/try-on/3.jpg"} alt="Pet" />
+                                            </div>
+                                        </div>
                                     }
                                 </div>
                             </div>
