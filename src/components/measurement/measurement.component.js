@@ -110,10 +110,6 @@ export default class Measurement extends Component  {
 
         )}
 
-        {measurements && (
-          <ResponseTable responseData={measurements} /> 
-        )}
-
         {message && (
           <div className="alert alert-secondary mt-3" role="alert">
             {message}
