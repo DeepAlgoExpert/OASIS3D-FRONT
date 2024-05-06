@@ -59,6 +59,7 @@ export default class Measurement extends Component  {
         this.setState({ message: response.data.message, 
                         measurements: response.data.measurements,
                         obj_url: response.data.obj_url,
+                        loading: false,
                         progress: 0, clicked: 1 });
         // Call the callback function to send data to parent
         this.props.onData(response.data.measurements, response.data.obj_url);
