@@ -104,18 +104,6 @@ export default class Measurement extends Component  {
             </div>
           </div>
         )}
-
-        {obj_url && (
-          <div className="text-center">
-            <OBJModel src={obj_url} texPath="./src/lib/model/" scale={{x:0.2,y:0.2,z:0.20}} position={{x:0,y:0.1,z:0}} width={430} height={566}>
-              <AmbientLight color={0x000fff}/>
-              <DirectionLight color={0xffffff} position={{x:100,y:200,z:100}}/>
-              <DirectionLight color={0xff00ff} position={{x:-100,y:200,z:-100}}/>
-            </OBJModel>
-          </div>
-
-        )}
-
         {message && (
           <div className="alert alert-secondary mt-3" role="alert">
             {message}

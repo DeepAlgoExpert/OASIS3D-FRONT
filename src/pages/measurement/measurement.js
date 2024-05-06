@@ -13,6 +13,7 @@ import Select from "react-dropdown-select";
 import TabButtons from "../../components/measurement/tabbutton.component";
 import TabContent from "../../components/tryon/tabcontent.component";
 import ResponseTable from './responseTable'; // Import the ResponseTable component
+import {OBJModel, AmbientLight, DirectionLight, OBJLoader} from 'react-3d-viewer';
 
 import "./measure.css";
 
@@ -82,7 +83,7 @@ function Measurement({ options }) {
     // State to hold height
     const [height, setHeight] = useState('');
     const [measureState, setMeasureState] = useState('');
-    const [objState, setObjState] = useState('');
+    const [objState, setObjState] = useState(null);
 
     const handleModelChange = (event) => {
         setModel(event.target.files[0]);
@@ -144,9 +145,18 @@ function Measurement({ options }) {
                                     }
 
                                     { activeTab==1 &&                                       
-                                        <>
+                                        <div className="w-100">
                                             <Measure model={model}  height={height} objUrl={objState} onData={handleMeasureData}/>
-                                        </>
+                                            {objState && (
+                                                <div className="text-center">
+                                                    <OBJModel src={objState} texPath="./src/lib/model/" scale={{x:0.2,y:0.2,z:0.20}} position={{x:0,y:0.1,z:0}} width={430} height={566}>
+                                                    <AmbientLight color={0x000fff}/>
+                                                    <DirectionLight color={0xffffff} position={{x:100,y:200,z:100}}/>
+                                                    <DirectionLight color={0xff00ff} position={{x:-100,y:200,z:-100}}/>
+                                                    </OBJModel>
+                                                </div>
+                                            )}
+                                        </div>
                                     }
                                     { activeTab==2 &&
                                         <>
