@@ -13,6 +13,20 @@ class FileUploadService {
   }
 
   tryon(modelType, model, garmentType, garment, onUploadProgress) {
+    
+    switch (garmentType) {
+      case 'Upper':
+        garmentType = 'Upper-body';
+        break;
+      case 'Lower':
+        garmentType = 'Lower-body';
+        break;
+      case 'Dress':
+        garmentType = 'Dress';
+        break;
+      default:
+        garmentType = 'Upper-body';
+    }
 
     return https.post("/", {
       headers: {

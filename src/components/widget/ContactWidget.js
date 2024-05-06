@@ -12,7 +12,7 @@ function ContactWidget() {
                 <h3>Contact info</h3>
                 <ul>
                     <li>Phone: 888-999-000-1425</li>
-                    <li>Email: beaumarfdeep0821@gmail.com</li>
+                    <li>Email: test@email.com</li>
                     <li>Address: 22/1 natinoal city austria, dreem land, Huwai</li>
                 </ul>
             </div>

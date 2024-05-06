@@ -27,7 +27,7 @@ function HeaderLeft({options}) {
                             the window</p>
                         <ul className="info">
                             <li>Contact us: ++8801682530219</li>
-                            <li>Mail us: beaumarfdeep0821@gmail.com</li>
+                            <li>Mail us: test@email.com</li>
                         </ul>
                         <ul className="social-links">
                             <li><a href="#"><i className="ti-facebook"/></a></li>

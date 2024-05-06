@@ -40,15 +40,11 @@ function VirtualFittingRoom({ options }) {
     const garmentOptions = [
         {
           value: 1,
-          label: 'Upper-body'
+          label: 'Upper'
         },
         {
           value: 2,
-          label: 'Lower-body'
-        },
-        {
-            value: 3,
-            label: 'Dress'
+          label: 'Lower'
         }
     ];
 
@@ -83,14 +79,6 @@ function VirtualFittingRoom({ options }) {
     // State to hold the selected garment type
     const [selectedGarmentType, setSelectedGarmentType] = useState('Upper');
 
-    const handleModelChange = (event) => {
-        setModel(event.target.files[0]);
-    };
-
-    const handleGarmentChange = (event) => {
-        setGarment(event.target.files[0]);
-    };
-
     /**
      * demo data
      */
@@ -98,8 +86,8 @@ function VirtualFittingRoom({ options }) {
         address: "Ailded frame showed a lady fitted out with fur hat and fur boa who sat upright",
         phone_1: "54875465-65741895-6547",
         phone_2: "2222-3333-4444-555",
-        email_1: "beaumarfdeep0821@gmail.com",
-        email_2: "beaumarfdeep0821@gmail.com",
+        //email_1: "beaumarfdeep0821@gmail.com",
+        //email_2: "beaumarfdeep0821@gmail.com",
         time: "10AM - 5 PM, Sunday closed"
     };
 
@@ -109,7 +97,44 @@ function VirtualFittingRoom({ options }) {
 
             <PageTitle name="VirtualFittingRoom"/>
 
-            {/* start contact-section */}
+
+             {/* start video-section */}
+             <section className="contact-section contact-pg-section section-padding" id="tryon-video-section">
+                <div className="container-1410">
+                    <div className="row">
+                        <div className="col col-lg-10 col-lg-offset-1">
+                            <div className="video-info">
+                                <ul>
+                                    <li>
+                                        <h1></h1>
+                                        <h1>CREATE YOUR STYLE</h1>
+                                        <h2>With a help of AI</h2>
+                                    </li>
+                                    <li>
+                                        <p></p><p></p>
+                                    </li>
+                                    <li>
+                                        <h3>The first AI-powered fashion photo editor app that allows  you to change clothes on pictures, tailored to your unique style or occasion with ease</h3>
+                                    </li>
+                                    <li>
+                                        <h3>With our technology, and your unique taste, you can use your own picture to style the perfect look. Explore a wide range of styles with more versatility than ever before</h3>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="video-form-col">
+                                <video class="elementor-video" 
+                                    width="440" height="660"
+                                    src="assets/videos/tryon.mov" 
+                                    autoPlay loop muted="muted" playsinline="" controlslist="nodownload">
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {/* end contact-section-s3 */}
+
+            {/* start tryon-section */}
             <section className="contact-section contact-pg-section section-padding">
                 <div className="container-1410">
                     <div className="row">
@@ -123,12 +148,15 @@ function VirtualFittingRoom({ options }) {
                             <div className="tab__container ">
                                 <div className="tab__content d-flex">
                                     <p> {vtoData[activeTab].fact}</p>
-                                    { activeTab==0 &&                                       
-                                        < ReactImagePickerEditor
-                                            config={config2}
-                                            imageSrcProp={model}
-                                            imageChanged={(newDataUri) => { setModel(newDataUri) }} 
-                                            />
+                                    { activeTab==0 &&
+                                        <>
+                                            < ReactImagePickerEditor
+                                                config={config2}
+                                                imageSrcProp={model}
+                                                imageChanged={(newDataUri) => { setModel(newDataUri) }} 
+                                                />
+                                        </>
+                                        
                                     }
 
                                     { activeTab==1 &&                                       

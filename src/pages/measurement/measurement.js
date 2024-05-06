@@ -6,8 +6,14 @@ import PageTitle from '../../components/global/PageTitle';
 import FilePreview from "../../components/filepreview/filepreview.component";
 import Measure from "../../components/measurement/measurement.component";
 import { useState, useEffect } from 'react';
+import ReactImagePickerEditor, { ImagePickerConf } from 'react-image-picker-editor';
+import 'react-image-picker-editor/dist/index.css'
+import Select from "react-dropdown-select";
 
+import TabButtons from "../../components/measurement/tabbutton.component";
+import TabContent from "../../components/tryon/tabcontent.component";
 
+import "./measure.css";
 
 /**
  * ContactUs page
@@ -20,6 +26,53 @@ function Measurement({ options }) {
     const onSubmitForm = (e)=> {
         e.preventDefault();
     };
+
+    const config2 = {
+        borderRadius: '8px',
+        language: 'en',
+        //width: '50%',
+        width: '330px',
+        aspectRatio: 0.75,
+        objectFit: 'fill',
+        compressInitial: null,
+    };
+
+    const garmentOptions = [
+        {
+          value: 1,
+          label: 'Upper'
+        },
+        {
+          value: 2,
+          label: 'Lower'
+        },
+        {
+            value: 3,
+            label: 'Dress'
+        }
+    ];
+
+    const measureData = [
+        {
+          title: "User Image",
+          fact: "Please upload your front photo captured phone or camera!",
+          image: "/assets/images/try-on/1.jpg",
+        },
+        {
+          title: "3D Body Preview",
+          fact: "This is your 3D body Preview!",
+          image: "/assets/images/try-on/2.jpg",
+        },
+        {
+          title: "Measurement Table",
+          fact: "Your body measurement result. Have fun!",
+          image: "/assets/images/try-on/3.jpg",
+          result: "/assets/images/try-on/3.jpg"
+        },
+      ];
+
+    const [activeTab, setActiveTab] = useState(0);
+    const [garment, setGarment] = useState('');
 
     const [model, setModel] = useState(null);
 
@@ -54,6 +107,65 @@ function Measurement({ options }) {
             <Header options={options} />
 
             <PageTitle name="3D Body Measurements"/>
+
+            {/* start measure-section */}
+            <section className="contact-section contact-pg-section section-padding">
+                <div className="container-1410">
+                    <div className="row">
+                        <div className="main__container">
+                            <h1>Body Measure Process</h1>
+                            <TabButtons
+                                activeTab={activeTab}
+                                setActiveTab={setActiveTab}
+                                measureData={measureData}
+                            />
+                            <div className="tab__container ">
+                                <div className="tab__content d-flex">
+                                    <p> {measureData[activeTab].fact}</p>
+                                    { activeTab==0 &&
+                                        <>
+                                            <div className='none'>
+                                                <Select 
+                                                placeholder='body'/>
+                                                <input type="text" name="name" id="name" value={height} 
+                                                    placeholder="Height* for example:178" 
+                                                    onChange={handleHeightChange} />
+                                            </div>
+                                                                                   
+                                            < ReactImagePickerEditor
+                                                config={config2}
+                                                imageSrcProp={model}
+                                                imageChanged={(newDataUri) => { setModel(newDataUri) }} 
+                                                />
+                                        </>
+                                        
+                                    }
+
+                                    { activeTab==1 &&                                       
+                                        <>
+                                            <Measure model={model}  height={height}/>
+                                        </>
+                                    }
+                                    { activeTab==2 &&
+                                        <>
+                                            <Select 
+                                                options={garmentOptions}
+                                                placeholder='Upper'
+                                                />
+                                            < ReactImagePickerEditor
+                                                config={config2}
+                                                imageSrcProp={garment}
+                                                imageChanged={(newDataUri) => { setGarment(newDataUri) }} 
+                                                />
+                                        </>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {/* end contact-section-s3 */}
                        
             {/* start contact-section */}
             <section className="contact-section contact-pg-section section-padding">

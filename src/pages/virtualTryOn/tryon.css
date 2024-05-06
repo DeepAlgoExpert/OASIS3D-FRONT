@@ -104,6 +104,35 @@ h1 {
   text-align: center;
 }
 
+
+.contact-pg-section .video-form-col {
+  width: calc(100% - 487px);
+  float: right;
+  padding-left: 146px;
+  position: relative;
+}
+
+.contact-pg-section .video-info {
+  width: 487px;
+  float: left;
+}
+
+.contact-pg-section .video-info h2{
+  color: #232323;
+  font-family: "Playfair Display", Sans-serif;
+  font-size: 65px;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.non-tag select{
+  display: none;
+}
+
+#tryon-video-section{
+  padding-bottom: 10px;
+}
+
 @media screen and (max-width: 1000px) {
   .main__container {
     gap: 2rem;
@@ -136,4 +165,5 @@ h1 {
   .tab__content p {
     font-size: 1.6rem;
   }
+
 }
