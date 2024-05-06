@@ -72,19 +72,16 @@ export default class Measurement extends Component  {
     
 
     return (
-      <div>
-        <div className="row">
-          <div className="col-4">
-            <button
-              type = "button"
-              className="btn btn-success btn-sm"
-              onClick={this.upload}
-            >
-              Measure
-            </button>
-          </div>
+      <div className="w-100">
+        <div className="text-center">
+          <button
+            type = "button"
+            className="btn btn-success btn-sm"
+            onClick={this.upload}
+          >
+            Measure
+          </button>
         </div>
-
         {imageData==null && (
           <div className="progress my-3">
             <div

@@ -124,21 +124,15 @@ function Measurement({ options }) {
                                     <p> {measureData[activeTab].fact}</p>
                                     { activeTab==0 &&
                                         <>
-                                            <div className='none'>
-                                                <Select 
-                                                placeholder='body'/>
-                                                <input type="text" name="name" id="name" value={height} 
-                                                    placeholder="Height* for example:178" 
-                                                    onChange={handleHeightChange} />
-                                            </div>
-                                                                                   
+                                            <input type="text" name="height" id="height-input" value={height} 
+                                                placeholder="Height* for example:178" 
+                                                onChange={handleHeightChange} />
                                             < ReactImagePickerEditor
                                                 config={config2}
                                                 imageSrcProp={model}
                                                 imageChanged={(newDataUri) => { setModel(newDataUri) }} 
                                                 />
                                         </>
-                                        
                                     }
 
                                     { activeTab==1 &&                                       
@@ -148,15 +142,7 @@ function Measurement({ options }) {
                                     }
                                     { activeTab==2 &&
                                         <>
-                                            <Select 
-                                                options={garmentOptions}
-                                                placeholder='Upper'
-                                                />
-                                            < ReactImagePickerEditor
-                                                config={config2}
-                                                imageSrcProp={garment}
-                                                imageChanged={(newDataUri) => { setGarment(newDataUri) }} 
-                                                />
+                                            
                                         </>
                                     }
                                 </div>

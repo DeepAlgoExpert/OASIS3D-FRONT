@@ -43,14 +43,12 @@ class FileUploadService {
   measure(model, height, onUploadProgress) {
     let formData = new FormData();
 
-    formData.append("model", model);
-    formData.append("height", height);
-    console.log('model-height:', formData);
-    console.log('model::', model)
-    return measureAPI.post("/measure", formData, {
+    return measureAPI.post("/measure", {
       headers: {
         "Content-Type": "multipart/form-data",
       },
+      model: model,
+      height: height,
       onUploadProgress,
     });
   }
