@@ -125,8 +125,8 @@ h1 {
   font-style: italic;
 }
 
-.non-tag select{
-  display: none;
+#body-obj{
+  padding-left: 24%;
 }
 
 #tryon-video-section{
@@ -135,10 +135,6 @@ h1 {
 
 #height-input{
   width: min-content;
-}
-
-#3d-obj{
-  padding-left: 28%;
 }
 
 @media screen and (max-width: 1000px) {
