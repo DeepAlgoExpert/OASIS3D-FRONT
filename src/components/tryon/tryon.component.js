@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import UploadService from "../../services/file-upload.service";
+import RiseLoader from "react-spinners/RiseLoader";
+
+const override = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
 
 export default class TryOnImages extends Component  {
+
   constructor(props) {
     super(props);
 
@@ -13,6 +21,7 @@ export default class TryOnImages extends Component  {
       imageInfos: [],
       clicked:null,
       imageData: null,
+      loading: false,
     };
     const {model} = this.props;
     this.setState({ modelPreview: model });
@@ -27,6 +36,7 @@ export default class TryOnImages extends Component  {
     this.setState({
       progress: 0,
       imageData: null,
+      loading: true,
     });
 
     this.props.onData(null);
@@ -45,7 +55,7 @@ export default class TryOnImages extends Component  {
         });
         this.setState({ imageData: response.data });
         this.setState({
-            progress: 0, clicked: 1,
+            progress: 0, clicked: 1, loading: false,
           });
         this.props.onData(response.data);
       })
@@ -75,32 +85,32 @@ export default class TryOnImages extends Component  {
       imageData,
       imageInfos,
       modelPreview,
+      loading,
     } = this.state;
     
     return (
       <>
-        <button
-          type = "button"
-          className="btn btn-success btn-sm"
-          onClick={this.upload}
-        >
-          TryOn
-        </button>
-
-        {(
-          <div className="progress my-3">
-            <div
-              className="progress-bar progress-bar-info progress-bar-striped"
-              role="progressbar"
-              aria-valuenow={progress}
-              aria-valuemin="0"
-              aria-valuemax="100"
-              style={{ width: progress + "%" }}
+        {!loading && (<button
+            type = "button"
+            className="btn btn-success btn-sm"
+            onClick={this.upload}
             >
-              {progress}%
-            </div>
-          </div>
-        )}
+            TryOn
+          </button>)
+        }
+
+        <div className="sweet-loading">
+          <RiseLoader
+
+            cssOverride={override}
+            size={20}
+            color={"#9eb25d"}
+            loading={this.state.loading}
+            speedMultiplier={1.5}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
 
         {message && (
           <div className="alert alert-secondary mt-3" role="alert">
