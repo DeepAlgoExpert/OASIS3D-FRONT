@@ -173,31 +173,6 @@ function Measurement({ options }) {
             </section>
             {/* end contact-section-s3 */}
                        
-            {/* start contact-section */}
-            <section className="contact-section contact-pg-section section-padding">
-                <div className="container-1410">
-                    <div className="row">
-                        <div className="col col-lg-10 col-lg-offset-1">
-                            <div className="contact-info">
-                                <h3>Please upload your front photo captured by your phone or camera!</h3>
-                                <br/>
-                                <input type="text" name="name" id="name" value={height} placeholder="Height* for example:178" onChange={handleHeightChange} />
-                                <br/><br/>
-                                <input type="file" onChange={handleModelChange} />
-                                <FilePreview previewImage={modelPreview}/>   
-                            </div>
-                            <div className="contact-form-col">
-                                <h3>3D Body Preview</h3>
-                                <Measure model={model}  height={height}/>
-                            </div>
-                        </div>
-                        <div className="col col-lg-10 col-lg-offset-1">
-                            
-                        </div>
-                    </div>
-                </div>
-            </section>
-            {/* end contact-section-s3 */}
             <Instagram/>
             <Footer/>
         </Fragment>
