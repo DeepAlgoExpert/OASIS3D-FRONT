@@ -103,7 +103,7 @@ function VirtualFittingRoom({ options }) {
             <PageTitle name="VirtualFittingRoom"/>
 
 
-             {/* start video-section */}
+            {/* start video-section */}
              <section className="contact-section contact-pg-section section-padding" id="tryon-video-section">
                 <div className="container-1410">
                     <div className="row">
@@ -188,7 +188,7 @@ function VirtualFittingRoom({ options }) {
                                                 vtoImage={resultState}
                                             />
                                             <div className="d-flex text-center w-100">
-                                                <img src={model? {model} : "/assets/images/try-on/3.jpg"} alt="Pet" />
+                                                <img src={model? model : "/assets/images/try-on/3.jpg"} alt="Pet" />
                                                 <img src={resultState? `data:image/png;base64,${resultState}`: "/assets/images/try-on/3.jpg"} alt="Pet" />
                                             </div>
                                         </div>
