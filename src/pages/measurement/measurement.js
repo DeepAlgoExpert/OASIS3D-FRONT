@@ -117,6 +117,35 @@ function Measurement({ options }) {
 
             <PageTitle name="3D Body Measurements"/>
 
+            {/* start video-section */}
+            <section className="contact-section contact-pg-section section-padding" id="tryon-video-section">
+                <div className="container-1410">
+                    <div className="row">
+                        <div className="col col-lg-10 col-lg-offset-1">
+                            <div className="video-info">
+                                <ul>
+                                    <li>
+                                        <h1></h1>
+                                        <h1>Start scanning</h1>
+                                        <h2>With a help of AI</h2>
+                                    </li>
+                                    <li>
+                                        <p></p><p></p>
+                                    </li>
+                                    <li>
+                                        <h3>Complete a 3D body scan using the scanning app to get your very own avatar and up to 20 body and health metrics.</h3>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="video-form-col">
+                                <img src="/assets/images/measurements/scan.webp" alt="Scan Image" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {/* end contact-section-s3 */}
+
             {/* start measure-section */}
             <section className="contact-section contact-pg-section section-padding">
                 <div className="container-1410">

@@ -51,12 +51,12 @@ function VirtualFittingRoom({ options }) {
     const vtoData = [
         {
           title: "User Image",
-          fact: "Please upload your front photo captured phone or camera!",
+          fact: "Please upload your front photo captured phone or camera! User image should be 3:4 portion.",
           image: "/assets/images/try-on/1.jpg",
         },
         {
           title: "Garment Image",
-          fact: "Please upload the garment image you are trying to wear!",
+          fact: "Please upload the garment image you are trying to wear! Garment image should be 3:4 portion.",
           image: "/assets/images/try-on/2.jpg",
         },
         {
@@ -188,7 +188,7 @@ function VirtualFittingRoom({ options }) {
                                                 vtoImage={resultState}
                                             />
                                             <div className="d-flex text-center w-100">
-                                                <img src={model} alt="Pet" />
+                                                <img src={model? {model} : "/assets/images/try-on/3.jpg"} alt="Pet" />
                                                 <img src={resultState? `data:image/png;base64,${resultState}`: "/assets/images/try-on/3.jpg"} alt="Pet" />
                                             </div>
                                         </div>
