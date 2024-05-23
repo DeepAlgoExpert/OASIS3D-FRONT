@@ -40,6 +40,35 @@ class FileUploadService {
     });
   }
 
+  tryon_new(modelType, model, garmentType, subgarmentType, garment, onUploadProgress) {
+    
+    switch (garmentType) {
+      case 'Upper':
+        garmentType = 'upper_body';
+        break;
+      case 'Lower':
+        garmentType = 'lower-body';
+        break;
+      case 'Dress':
+        garmentType = 'dresses';
+        break;
+      default:
+        garmentType = 'upper_body';
+    }
+
+    return https.post("/virtual-fit", {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+      model: model,
+      garment: garment,
+      modelType: modelType,
+      garmentType: garmentType,
+      subgarmentType: subgarmentType,
+      onUploadProgress,
+    });
+  }
+
   measure(model, height, onUploadProgress) {
     let formData = new FormData();
 

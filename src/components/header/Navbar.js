@@ -77,6 +77,9 @@ function Navbar({options}) {
                     <li>
                         <NavLink to="/contact" activeClassName="current-menu-item">Contact</NavLink>
                     </li>
+                    <li>
+                        <NavLink to="/virtualfitting-new" activeClassName="current-menu-item">Eugenie</NavLink>
+                    </li>
                 </ul>
             </div>
             {/* end of nav-collapse */}

@@ -24,8 +24,8 @@ function ContactUs({ options }) {
         address: "Ailded frame showed a lady fitted out with fur hat and fur boa who sat upright",
         phone_1: "54875465-65741895-6547",
         phone_2: "2222-3333-4444-555",
-        email_1: "beaumarfdeep0821@gmail.com",
-        email_2: "beaumarfdeep0821@tryon.ai",
+        email_1: "eugenie.negrusa.dev@gmail.com",
+        email_2: "eugenie.negrusa.dev@tryon.ai",
         time: "10AM - 5 PM, Sunday closed"
     };
 
