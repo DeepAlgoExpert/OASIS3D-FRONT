@@ -47,7 +47,7 @@ class FileUploadService {
         garmentType = 'upper_body';
         break;
       case 'Lower':
-        garmentType = 'lower-body';
+        garmentType = 'lower_body';
         break;
       case 'Dress':
         garmentType = 'dresses';
