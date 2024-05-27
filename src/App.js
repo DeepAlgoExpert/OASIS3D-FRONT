@@ -9,6 +9,7 @@ import HttpsRedirect from 'react-https-redirect';
 import Preloader from './components/global/Preloader';
 import HomeDefault from './pages/home/Default';
 import VirtualTryOn from './pages/virtualTryOn/Tryon';
+import VirtualTryOnNew from './pages/virtualTryOnNew/Tryon';
 import Measurement from './pages/measurement/measurement';
 import Style2 from './pages/home/Style2';
 import Style3 from './pages/home/Style3';
@@ -159,6 +160,10 @@ function App() {
 
                         <Route exact path="/my-account">
                             <MyAccount options={options}/>
+                        </Route>
+
+                        <Route exact path="/virtualfitting-new">
+                            <VirtualTryOnNew options={options}/>
                         </Route>
 
                         <Route exact path="/checkout">

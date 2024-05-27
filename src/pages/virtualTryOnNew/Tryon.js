@@ -9,7 +9,7 @@ import Instagram from '../../components/global/Instagram';
 import Header from '../../components/header/Header';
 import PageTitle from '../../components/global/PageTitle';
 import FilePreview from "../../components/filepreview/filepreview.component";
-import TryOnImages from "../../components/tryon/tryon.component";
+import TryOnImages from "../../components/tryon-new/tryon.component";
 import TabButtons from "../../components/tryon/tabbutton.component";
 import TabContent from "../../components/tryon/tabcontent.component";
 
@@ -52,6 +52,56 @@ function VirtualFittingRoom({ options }) {
         }
     ];
 
+    const lowerSubOptions = [
+        {
+          value: 1,
+          label: 'Shorts'
+        },
+        {
+          value: 2,
+          label: 'Bermuda shorts'
+        },
+        {
+          value: 3,
+          label: 'Ankle-Length Pants'
+        },
+        {
+          value: 4,
+          label: 'Mini Skirts'
+        },
+        {
+          value: 5,
+          label: 'Knee-Length Skirts'
+        },
+        {
+          value: 6,
+          label: 'Midi Skirts'
+        },
+        {
+          value: 7,
+          label: 'Maxi Skirts'
+        }
+    ];
+
+    const dressSubOptions = [
+        {
+          value: 1,
+          label: 'Mini Dress'
+        },
+        {
+          value: 2,
+          label: 'Knee-Length Dress'
+        },
+        {
+          value: 3,
+          label: 'Midi Dress'
+        },
+        {
+          value: 4,
+          label: 'Maxi Dress'
+        }
+    ];
+
     const vtoData = [
         {
           title: "User Image",
@@ -83,6 +133,8 @@ function VirtualFittingRoom({ options }) {
     const [selectedModelType, setSelectedModelType] = useState('Half');
     // State to hold the selected garment type
     const [selectedGarmentType, setSelectedGarmentType] = useState('Upper');
+    // State to hold the selected garment sub category
+    const [selectedSubGarmentType, setSelectedSubGarmentType] = useState('');
 
     const handleVtoData = (imageData) => {
         setResultState(imageData);
@@ -174,6 +226,26 @@ function VirtualFittingRoom({ options }) {
                                                 options={garmentOptions}
                                                 placeholder='Upper'
                                                 onChange={(values) => setSelectedGarmentType(values[0].label)} />
+                                            { selectedGarmentType=="Lower" &&
+                                                <>
+                                                    <Select 
+                                                    options={lowerSubOptions}
+                                                    placeholder='Select SubCategoryLower...'
+                                                    className='sub-select'
+                                                    required='True'
+                                                    onChange={(values) => setSelectedSubGarmentType(values[0].label)} />
+                                                </>
+                                            }
+                                            { selectedGarmentType=="Dress" &&
+                                                <>
+                                                    <Select 
+                                                    options={dressSubOptions}
+                                                    placeholder='Select SubCategoryDress...'
+                                                    className='sub-select'
+                                                    onChange={(values) => setSelectedSubGarmentType(values[0].label)} />
+                                                </>
+                                            }
+                                            
                                             < ReactImagePickerEditor
                                                 config={config2}
                                                 imageSrcProp={garment}
@@ -186,7 +258,8 @@ function VirtualFittingRoom({ options }) {
                                             <TryOnImages 
                                                 modelType={selectedModelType} 
                                                 model={model} 
-                                                garmentType={selectedGarmentType} 
+                                                garmentType={selectedGarmentType}
+                                                subgarmentType={selectedSubGarmentType} 
                                                 garment={garment}
                                                 onData={handleVtoData} 
                                                 vtoImage={resultState}

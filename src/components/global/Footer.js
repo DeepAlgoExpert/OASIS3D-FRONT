@@ -38,7 +38,7 @@ function Footer() {
                             <div className="col-xs-12">
                                 <div className="lower-footer-inner clearfix">
                                     <div>
-                                        <p>© 2021 WP Studio , All Rights Reserved</p>
+                                        <p>© 2024 VirtualFittingRoom , All Rights Reserved</p>
                                     </div>
                                     <div className="social">
                                         <ul className="clearfix">
