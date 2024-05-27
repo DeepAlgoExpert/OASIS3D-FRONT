@@ -100,7 +100,7 @@ export default class Measurement extends Component  {
               className="btn btn-success btn-sm"
               onClick={this.upload}
               >
-              TryOn
+              Generating 3D model
             </button>)
           }
         </div>
