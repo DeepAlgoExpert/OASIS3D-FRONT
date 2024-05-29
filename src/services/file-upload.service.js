@@ -28,7 +28,7 @@ class FileUploadService {
         garmentType = 'Upper-body';
     }
 
-    return https.post("/", {
+    return measureAPI.post("/try-on", {
       headers: {
         "Content-Type": "multipart/form-data",
       },
