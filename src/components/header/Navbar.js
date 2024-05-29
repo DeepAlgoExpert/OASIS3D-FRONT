@@ -78,7 +78,7 @@ function Navbar({options}) {
                         <NavLink to="/contact" activeClassName="current-menu-item">Contact</NavLink>
                     </li>
                     <li>
-                        <NavLink to="/virtualfitting-new" activeClassName="current-menu-item">Eugenie</NavLink>
+                        <NavLink to="/" activeClassName="current-menu-item">Eugenie</NavLink>
                     </li>
                 </ul>
             </div>
