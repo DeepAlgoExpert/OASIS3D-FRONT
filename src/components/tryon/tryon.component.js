@@ -50,9 +50,7 @@ export default class TryOnImages extends Component  {
       });
     })
       .then((response) => {
-        this.setState({
-          message: response.data.message,
-        });
+        
         this.setState({ imageData: response.data });
         this.setState({
             progress: 0, clicked: 1, loading: false,
