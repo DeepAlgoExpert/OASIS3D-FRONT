@@ -33,7 +33,7 @@ function Measurement({ options }) {
         borderRadius: '8px',
         language: 'en',
         //width: '50%',
-        width: '100%',
+        width: '330px',
         aspectRatio: 0.75,
         objectFit: 'fill',
         compressInitial: null,
