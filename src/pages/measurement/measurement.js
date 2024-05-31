@@ -33,10 +33,14 @@ function Measurement({ options }) {
         borderRadius: '8px',
         language: 'en',
         //width: '50%',
-        width: '330px',
+        width: '100%',
         aspectRatio: 0.75,
         objectFit: 'fill',
         compressInitial: null,
+        hideDeleteBtn: true,
+        hideDownloadBtn: true,
+        hideEditBtn: true,
+        hideAddBtn: true
     };
 
     const garmentOptions = [
