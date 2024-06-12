@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter as Router} from "react-router-dom";
 
+// Import the FontAwesomeIcon component
+
 import App from './App';
 
 /**

@@ -3,6 +3,8 @@ import {Switch, Route} from "react-router-dom";
 
 import HttpsRedirect from 'react-https-redirect';
 
+// const element = <FontAwesomeIcon icon={faCoffee} />
+
 /**
  * import components
  */

@@ -1,0 +1,32 @@
+.tab-header {
+    display: flex;
+    padding-bottom: 20px;
+}
+
+.tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: bold;
+    color: #000;
+    cursor: pointer;
+    border-bottom: 4px solid #fff;
+}
+
+.tab.active {
+    border-bottom: 4px solid #000;
+}
+
+.tab-content {
+    position: relative;
+    flex-grow: 1;
+}
+
+.tab-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}

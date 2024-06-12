@@ -8,7 +8,8 @@ import Categories from '../../components/categories/Categories';
 import CtaSection from '../../components/CTA/CtaSection';
 import RecentProducts from '../../components/products/RecentProducts';
 import BestSeller from '../../components/products/BestSeller';
-import QuickView from '../../components/products/QuickView';
+//import QuickView from '../../components/products/QuickView';
+import QuickView from '../../components/measurement/QuickView';
 import NewsletterPopup from '../../components/global/NewsletterPopup';
 import Instagram from '../../components/global/Instagram';
 import Footer from '../../components/global/Footer';
@@ -79,7 +80,7 @@ function HomeDefault({ options }) {
 
             <Footer/>
 
-            <NewsletterPopup/>
+            {/* <NewsletterPopup/> */}
         </Fragment>
     );
 }

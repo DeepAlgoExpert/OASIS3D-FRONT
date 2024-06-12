@@ -469,7 +469,7 @@ select {
     box-shadow: none;
 }
 
-.quick-view-single-product .view-single-product-inner {
+/* .quick-view-single-product .view-single-product-inner {
     width: 1100px;
     background-color: #fff;
     position: fixed;
@@ -481,7 +481,7 @@ select {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-}
+} */
 
 @media (max-width: 1200px) {
     .quick-view-single-product .view-single-product-inner {
@@ -9656,3 +9656,289 @@ button:active {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+.quick-viewer-wrapper {
+    position: fixed;
+    width: 414px !important;
+    height: 780px !important;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 25px;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.2) 1px 1px 15px 0px;
+    transition: opacity 0.5s ease 0s, transform 0.25s ease 0s, bottom 0.5s ease 0s;
+    z-index: 2147483647;
+    opacity: 1;
+    bottom: 15px;
+    transform: scale(0.907692) translateY(0px);
+    right: 15px;
+    transform-origin: right bottom;
+}
+
+.quick-viewer-wrapper img {
+    display: block;
+    max-width: 100%;
+}
+
+.quick-viewer-wrapper button {
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    padding: 0px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+    cursor: pointer;
+}
+
+.quick-viewer-wrapper>:nth-child(2) {
+    position: absolute;
+    right: 61px;
+    top: 16px;
+    width: 34px;
+    height: 34px;
+    background-color: #fff;
+    border: 1px solid rgb(0, 0, 0);
+} 
+
+.quick-viewer-wrapper>:nth-child(3) {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 34px;
+    height: 34px;
+    border: none;
+    background-color: rgba(0, 0, 0, 0.5);
+} 
+
+
+.sideaction-buttons {
+    z-index: 3;
+    position: absolute;
+    right: 16px;
+    bottom: 105px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    align-items: flex-end;
+    margin: -12.5px 0px;
+}
+
+.sideaction-buttons button {
+    width: 40px;
+    height: 40px;
+    background-color: #000;   
+}
+
+
+.sideaction-buttons button.disabled {
+    opacity: .3;
+    cursor: not-allowed;
+}
+
+.action-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+    position: absolute;
+    padding: 0px 16px 16px;
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+    background-color: transparent;
+    z-index: 2;
+    height: auto;
+    bottom: 0px;
+    left: 0px;
+}
+
+.mix-wrapper {
+    width: 44px;
+    height: 44px;
+    position: relative;
+}
+
+.mix-wrapper button {
+    width: 44px;
+    height: 44px;
+    background-color: #000;
+    position: relative;
+    z-index: 5;
+}
+
+.button-long {
+    width: 100%;
+    height: 40px;
+    padding: 0px 15px !important;
+    border: 0px;
+    border-radius: 35px;
+    transition: opacity 0.3s ease 0s;
+    background-color: rgb(0, 0, 0);
+    text-transform: capitalize;
+}
+
+.mix-background {
+    display: block;
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    width: 56px;
+    height: 56px;
+    transform-origin: center center;
+}
+
+.mix-background i {
+    width: 49px;
+    height: 49px;
+    border-radius: 49px;
+    display: block;
+    position: absolute;
+    z-index: 0;
+    opacity: 0.5;
+}
+
+.mix-background > :first-child {
+    background-image: linear-gradient(51deg, rgb(51, 102, 255) 25%, rgb(140, 250, 199) 100%);
+    left: 7px;
+    top: 2px;
+}
+
+.mix-background >:nth-child(2) {
+    background-image: linear-gradient(44deg, rgb(255, 177, 64) 0%, rgb(255, 84, 69) 26%, rgb(252, 43, 130) 60%, rgb(142, 64, 183) 100%);
+    left: 0px;
+    top: 4px;
+}
+
+.mix-background >:last-child {
+    background-image: linear-gradient(223deg, rgb(255, 50, 130) 0%, rgb(255, 49, 168) 51%, rgb(247, 181, 0) 100%);
+    left: 5px;
+    top: 7px;
+}
+
+.try-it-on-view {
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 20px 20px;
+}
+
+.try-view-header {
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.try-view-header .title {
+    font-size: 20px;
+}
+
+.try-view-header .collapse-button {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+}
+
+.try-me-bg {
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    transform: translate3d(0px, 0px, 0px);
+    height: 100%;
+    width: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: 2;
+}
+
+.try-me-bg img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    border-radius: 16px;
+    object-fit: cover;
+    object-position: center top;
+    pointer-events: none;
+    transition: opacity 350ms linear 0s;
+    will-change: opacity;
+    z-index: 1;
+    opacity: 1;
+}
+
+.try-me-overlay {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    background: linear-gradient(rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);
+    z-index: 3;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+.try-it-on-me {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 20px 20px 25px;
+    align-items: center;
+}
+
+.try-me-title {
+    font-size: 26px;
+    line-height: 29px;
+    color: #fff;
+    z-index: 3;
+    font-weight: 600;
+    text-align: center;
+}
+
+.try-me-description {
+    margin-top: 16px;
+    line-height: 17px;
+    color: rgb(255, 255, 255);
+    z-index: 3;
+    font-size: 14px;
+    text-align: center;
+}
+
+.try-me-qrcode {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: .5rem;
+    display: flex;
+    width: fit-content;
+    justify-content: center;
+    z-index: 5;
+}
+
+.try-me-other {
+    margin-top: 20.5px;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transform: translate3d(0px, 0px, 0px);
+}
+
+.try-me-other span {
+    color: #fff;
+}
