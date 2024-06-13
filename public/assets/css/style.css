@@ -10058,3 +10058,66 @@ button:active {
     display: block;
     height: 100%;
 }
+
+#height-input {
+    z-index: 3;
+}
+
+.spinner {
+    z-index: 3;
+}
+
+.input-height-wrapper {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+}
+
+.input-height {
+    border-radius: 20px !important;
+    height: 35px;
+    background-color: #ddd;
+    border: 2px solid #aaa !important;
+}
+
+.confirm-height {
+    background: #fff;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0px;
+    width: 32px;
+    height: 32px;
+}
+
+.confirm-height:hover {
+    background: #eee !important;
+}
+
+.model-picker-wrapper {
+    z-index: 10;
+    display: flex;
+    flex-direction: row;
+    
+}
+.model-picker-wrapper .confirm-model{
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    padding: 0px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 4px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-125%);
+    width: 32px;
+    height: 32px;
+    left: 60%;
+}
