@@ -28,17 +28,29 @@ import Select from 'react-dropdown-select';
 function QuickView({data, onQuickViewCloseClick}) {
 
     const [isTriedItOn, setTryItOn] = useState(false);
+    const [bgImage, setBgImage] = useState('/assets/images/bg-image/woman.png');
+    
+    const handleCollapse = () => {
+        setTryItOn(false);
+      };
+
+    const handleBgImage = (item) => {
+        setBgImage(item);
+        setTryItOn(false)
+    };
 
     return (
         <Fragment>
             <div className="quick-view-single-product activve-quick-view-single-product">
                 <div className="view-single-product-inner clearfix quick-viewer-wrapper">
             {!isTriedItOn ? <>
-                    <img loading="lazy" src={process.env.PUBLIC_URL + data.mainImg} alt=""/>
+                    <img loading="lazy" className='bg-image' 
+                    src={bgImage} alt=""/>
+                    
                     <button type='button'>
                         <FontAwesomeIcon icon={faEllipsis} color='#000' size='xl' />
                     </button>
-                    <button type='button'>
+                    <button type='button' onClick={onQuickViewCloseClick}>
                         <FontAwesomeIcon icon={faClose} color='#fff' size='xl' />
                     </button>
                     <div className='sideaction-buttons'>
@@ -56,7 +68,7 @@ function QuickView({data, onQuickViewCloseClick}) {
                         </button>
                     </div>
                     <div className='action-buttons'>
-                        <button type='button' className='button-long'>Match</button>
+                        <button type='button' className='button-long'>Measure</button>
                         <div className='mix-wrapper'>
                         <div className="mix-background">
                             <i type="a"></i>
@@ -64,17 +76,17 @@ function QuickView({data, onQuickViewCloseClick}) {
                             <i type="c"></i></div>
                             <button type='button'>MIX</button>
                         </div>
-                        <button type='button' className='button-long' onClick={() => setTryItOn(true)}>Try it on</button>
+                        <button type='button' className='button-long' onClick={() => setTryItOn(true)}>Select Model</button>
                     </div>
                     </>
-                    : <TriedItOnView />}
+                    : <TriedItOnView onCollapse={handleCollapse} onChangeModel={handleBgImage}/>}
                 </div>
             </div> 
         </Fragment>
     );
 }
 
-const TriedItOnView = () => {
+const TriedItOnView = ({onCollapse, onChangeModel}) => {
     const [curTab, setCurTab] = useState(0);
     const slides = {
         women: [
@@ -119,7 +131,7 @@ const TriedItOnView = () => {
             <div className='try-view-header'>
                 <div></div>
                 <h2 className='title'>How do you want to try it on?</h2>
-                <button className='collapse-button'>
+                <button className='collapse-button' onClick={onCollapse}>
                     <FontAwesomeIcon icon={faChevronDown} color='#000' size='xl' />
                 </button>
             </div>
@@ -164,7 +176,7 @@ const TriedItOnView = () => {
                             <div className='slide-content' key={idx}>
                                 <img src={item} data-testid="models-list-image" />
                                 <div className='slide-content-overlay'>
-                                    <button className='button-long'>SELECT</button>
+                                    <button className='button-long' onClick={() => onChangeModel(item)}>SELECT</button>
                                 </div>
                             </div>
                         </SwiperSlide>

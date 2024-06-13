@@ -10048,3 +10048,13 @@ button:active {
     border-radius: .5rem !important;
     padding: 0 1rem !important;
 }
+
+.bg-image {
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    height: 100%;
+}
