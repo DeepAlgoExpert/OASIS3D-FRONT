@@ -6,8 +6,9 @@ import Instagram from '../../components/global/Instagram';
 import PageTitle from '../../components/global/PageTitle';
 import Header from '../../components/header/Header';
 import ProductInfoTabs from '../../components/products/ProductInfoTabs';
-import QuickView from '../../components/products/QuickView';
+//import QuickView from '../../components/products/QuickView';
 import RecentSingleProducts from '../../components/products/RecentSingleProducts';
+import QuickView from '../../components/measurement/QuickView';
 
 import './shop.css';
 
@@ -185,6 +186,7 @@ function ShopSliderImages({options}) {
                                         </span>
                                     </div>
                                 </div>
+                                <button type="submit" onClick={e => setShowQuickView(true)}>Virtual Fitting Room</button>
                             </div>
                         </div>
                         {/* end col */}
