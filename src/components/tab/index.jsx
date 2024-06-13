@@ -11,7 +11,7 @@ const CustomTabs = ({
         <div className="tab-header">
           {
             tabTitles.map((title, idx) => (
-              <div className={`tab ${active == idx ? 'active' : ''}`} style={{width: `calc(100% / ${tabTitles.length})`}} onClick={() => onUpdate(idx)}>
+              <div key={idx} className={`tab ${active == idx ? 'active' : ''}`} style={{width: `calc(100% / ${tabTitles.length})`}} onClick={() => onUpdate(idx)}>
                   {title}
               </div>
             ))
