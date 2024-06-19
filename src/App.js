@@ -10,6 +10,7 @@ import HttpsRedirect from 'react-https-redirect';
  */
 import Preloader from './components/global/Preloader';
 import HomeDefault from './pages/home/Default';
+import Home from './pages/home/Home';
 import VirtualTryOn from './pages/virtualTryOn/Tryon';
 import VirtualTryOnNew from './pages/virtualTryOnNew/Tryon';
 import Measurement from './pages/measurement/measurement';
@@ -125,11 +126,11 @@ function App() {
                     <Switch>
 
                         <Route exact path="/">
-                            <HomeDefault options={options}/>
+                            <Home options={options}/>
                         </Route>
 
                         <Route exact path="/home">
-                            <HomeDefault options={options}/>
+                            <Home options={options}/>
                         </Route>
 
                         <Route exact path="/body-measurement">

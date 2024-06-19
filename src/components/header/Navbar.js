@@ -16,15 +16,20 @@ function Navbar({options}) {
             <div id="navbar" className={"navbar-collapse collapse navigation-holder " + (options.mobileNav ? 'slideInn' : '')}>
                 <button onClick={options.onMobileNavClick} className="close-navbar"><i className="ti-close"/></button>
                 <ul className="nav navbar-nav">
+                    {/*
                     <li className="current-menu-item">
                         <NavLink to="/">Home</NavLink>
                     </li>
+                    */}
                     <li>
                         <NavLink to="/body-measurement" activeClassName="current-menu-item">Mobile Tailer</NavLink>
                     </li>
+                    <Logo/>
                     <li>
-                        <NavLink to="/virtualfitting" activeClassName="current-menu-item">VirtualFittingRoom</NavLink>
+                        <NavLink to="virtualfitting-new" activeClassName="current-menu-item">VirtualFittingRoom</NavLink>
                     </li>
+
+            {/*
                     <li><NavLink to="/about" activeClassName="current-menu-item">About</NavLink></li>
                     <li className="menu-item-has-children has-mega-menu">
                         <a href="#">Shop</a>
@@ -80,6 +85,7 @@ function Navbar({options}) {
                     <li>
                         <NavLink to="/" activeClassName="current-menu-item">Demo</NavLink>
                     </li>
+            */}
                 </ul>
             </div>
             {/* end of nav-collapse */}

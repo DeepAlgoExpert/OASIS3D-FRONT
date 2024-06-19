@@ -1,0 +1,34 @@
+
+.footer{
+    background-color: black;
+    padding: 2%;
+    
+}
+
+.footer-wrapper .row{
+    flex-wrap: wrap; 
+}
+
+.footer a{
+    color: white !important;
+    font-size: 23px;
+    line-height: 2%;
+}
+
+.icon-wrapper{
+    color: white !important;
+    margin-top: 50%;
+    padding: 0, 5%;
+}
+
+.text-col{
+    margin-top: 4%;
+    margin-left: 5%;
+}
+
+.footer h3{
+    color: white !important;
+    font-size: 16px;
+    line-height: 2%;
+    padding: 10%, 0;
+}
