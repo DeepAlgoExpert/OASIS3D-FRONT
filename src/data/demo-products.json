@@ -1,0 +1,200 @@
+[
+    {
+        "title": "Cap-sleeved blouse",
+        "category": "tops",
+        "mainImg" : "/assets/images/shop/cloth/tops/Cap-sleeved blouse.jpg"
+    },
+    {
+        "title": "Linen shirt",
+        "category": "tops",
+        "mainImg" : "/assets/images/shop/cloth/tops/Linen shirt.jpg"
+    },
+    {
+        "title": "Linen-blend blouse",
+        "category": "tops",
+        "mainImg" : "/assets/images/shop/cloth/tops/Linen-blend blouse.jpg"
+    },
+    {
+        "title": "Linen-blend shirt",
+        "category": "tops",
+        "mainImg" : "/assets/images/shop/cloth/tops/Linen-blend shirt.jpg"
+    },
+    {
+        "title": "Oversized printed T-shirt",
+        "category": "tops",
+        "mainImg" : "/assets/images/shop/cloth/tops/Oversized printed T-shirt.jpg"
+    },
+    {
+        "title": "Oversized sports sweatshirt",
+        "category": "tops",
+        "mainImg" : "/assets/images/shop/cloth/tops/Oversized sports sweatshirt.jpg"
+    },
+    {
+        "title": "Oversized sports sweatshirt",
+        "category": "tops",
+        "mainImg" : "/assets/images/shop/cloth/tops/Oversized sports sweatshirt1.jpg"
+    },
+    {
+        "title": "Pointelle-knit cardigan",
+        "category": "tops",
+        "mainImg" : "/assets/images/shop/cloth/tops/Pointelle-knit cardigan.jpg"
+    },
+    {
+        "title": "Rib-knit tube top",
+        "category": "tops",
+        "mainImg" : "/assets/images/shop/cloth/tops/Rib-knit tube top.jpg"
+    },
+
+
+    {
+        "title": "A-line poplin skirt",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/A-line poplin skirt.jpg"
+    },
+    {
+        "title": "Baggy Low Denim shorts",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/Baggy Low Denim shorts.jpg"
+    },
+    {
+        "title": "Bermuda High Denim shorts",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/Bermuda High Denim shorts.jpg"
+    },
+    {
+        "title": "Crêpe satin skirt",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/Crêpe satin skirt.jpg"
+    },
+    {
+        "title": "Cycling shorts",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/Cycling shorts.jpg"
+    },
+    {
+        "title": "Denim cargo skirt",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/Denim cargo skirt.jpg"
+    },
+    {
+        "title": "Denim maxi skirt",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/Denim maxi skirt.jpg"
+    },
+    {
+        "title": "Flared mini skirt",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/Flared mini skirt.jpg"
+    },
+    {
+        "title": "Flared mini skirt",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/Flared mini skirt1.jpg"
+    },
+    {
+        "title": "Flared Ultra High Jeans",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/Flared Ultra High Jeans.jpg"
+    },
+    {
+        "title": "Knee-length skirt",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/Knee-length skirt.jpg"
+    },
+    {
+        "title": "Knee-length skirt",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/Knee-length skirt2.jpg"
+    },
+    {
+        "title": "Pleated scuba skirt",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/Pleated scuba skirt.jpg"
+    },
+    {
+        "title": "Skinny High Jeans",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/Skinny High Jeans.jpg"
+    },
+    {
+        "title": "Smocked mini skirt",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/Smocked mini skirt.jpg"
+    },
+    {
+        "title": "True To You Skinny High Jeans",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/True To You Skinny High Jeans.jpg"
+    },
+    {
+        "title": "Ultra High Ankle Jeggings",
+        "category": "bottom",
+        "mainImg" : "/assets/images/shop/cloth/bottom/Ultra High Ankle Jeggings.jpg"
+    },
+
+
+
+    {
+        "title": "Knitted turtleneck dress",
+        "category": "dress",
+        "mainImg" : "/assets/images/shop/cloth/dress/Knitted turtleneck dress.jpg"
+    },
+    {
+        "title": "Long smock-waisted dress",
+        "category": "dress",
+        "mainImg" : "/assets/images/shop/cloth/dress/Long smock-waisted dress.jpg"
+    },
+    {
+        "title": "Ribbed bodycon dress",
+        "category": "dress",
+        "mainImg" : "/assets/images/shop/cloth/dress/Ribbed bodycon dress.jpg"
+    },
+    {
+        "title": "Ribbed midi dress",
+        "category": "dress",
+        "mainImg" : "/assets/images/shop/cloth/dress/Ribbed midi dress.jpg"
+    },
+    {
+        "title": "Shoulder-pad T-shirt dress",
+        "category": "dress",
+        "mainImg" : "/assets/images/shop/cloth/dress/Shoulder-pad T-shirt dress.jpg"
+    },
+    {
+        "title": "Tie-belt shirt dress",
+        "category": "dress",
+        "mainImg" : "/assets/images/shop/cloth/dress/Tie-belt shirt dress.jpg"
+    },
+    {
+        "title": "Tie-belt denim dress",
+        "category": "dress",
+        "mainImg" : "/assets/images/shop/cloth/dress/Tie-belt denim dress.jpg"
+    },
+
+
+
+    {
+        "title": "woman1",
+        "category": "face",
+        "mainImg" : "/assets/images/user/woman1.jpg"
+    },
+    {
+        "title": "woman2",
+        "category": "face",
+        "mainImg" : "/assets/images/user/woman2.jpg"
+    },
+    {
+        "title": "woman3",
+        "category": "face",
+        "mainImg" : "/assets/images/user/woman3.jpg"
+    },
+    {
+        "title": "woman4",
+        "category": "face",
+        "mainImg" : "/assets/images/user/woman4.jpg"
+    }
+    
+
+    
+    
+]
+   

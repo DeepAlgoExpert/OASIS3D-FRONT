@@ -282,7 +282,6 @@ function VirtualFittingRoom({ options }) {
             </section>
             {/* end contact-section-s3 */}
 
-            <Instagram/>
             <Footer/>
         </Fragment>
     );

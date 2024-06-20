@@ -28,9 +28,14 @@ function Navbar({options}) {
                     <li>
                         <NavLink to="virtualfitting-new" activeClassName="current-menu-item">VirtualFittingRoom</NavLink>
                     </li>
+                    <li>
+                        <NavLink to="/demo" activeClassName="current-menu-item">Demo</NavLink>
+                    </li>
 
             {/*
                     <li><NavLink to="/about" activeClassName="current-menu-item">About</NavLink></li>
+            */}
+
                     <li className="menu-item-has-children has-mega-menu">
                         <a href="#">Shop</a>
                         <ul className="mega-menu">
@@ -72,7 +77,7 @@ function Navbar({options}) {
                             </li>
                         </ul>
                     </li>
-
+            {/*
                     <Logo/>
 
                     <li><NavLink to="/blog" activeClassName="current-menu-item">Blog</NavLink></li>

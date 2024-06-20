@@ -1,12 +1,8 @@
 
 .footer{
     background-color: black;
-    padding: 2%;
-    
-}
-
-.footer-wrapper .row{
-    flex-wrap: wrap; 
+    /* padding: 2%     */
+    z-index: 1;
 }
 
 .footer a{
@@ -15,20 +11,80 @@
     line-height: 2%;
 }
 
-.icon-wrapper{
-    color: white !important;
-    margin-top: 50%;
-    padding: 0, 5%;
-}
-
-.text-col{
-    margin-top: 4%;
-    margin-left: 5%;
-}
-
 .footer h3{
     color: white !important;
     font-size: 16px;
     line-height: 2%;
     padding: 10%, 0;
+}
+
+.upper-wrapper {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 100%;
+    flex-wrap: nowrap;
+    
+}
+
+.upper-wrapper .logo-col {
+    width: 15%;
+    height: inherit;
+}
+
+.upper-wrapper .text-col {
+    width: 70%;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: space-between;
+    padding: 3% 0px;
+    margin-left: 8%;
+}
+
+.upper-wrapper .text-col h2 {
+    margin: 0;
+    line-height: normal;
+}
+
+.upper-wrapper .first-space-col {
+    width: 20%;
+    height: inherit;
+}
+
+.upper-wrapper .space-col {
+    width: 20%;
+    height: inherit;
+}
+
+.upper-wrapper .icon-col {
+    width: 15%;
+    height: inherit;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.low-wrapper {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding: 25px;
+    padding-top: 0;
+    flex-wrap: wrap;
+}
+
+.low-wrapper .copyright {
+    text-align: left;
+    width: 50%;
+    height: inherit;
+}
+
+.low-wrapper .contact-info {
+    text-align: right;
+    width: 50%;
+    height: inherit;
 }

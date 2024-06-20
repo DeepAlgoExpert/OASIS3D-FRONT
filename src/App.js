@@ -13,6 +13,7 @@ import HomeDefault from './pages/home/Default';
 import Home from './pages/home/Home';
 import VirtualTryOn from './pages/virtualTryOn/Tryon';
 import VirtualTryOnNew from './pages/virtualTryOnNew/Tryon';
+import Demo from './pages/demo/Demo';
 import Measurement from './pages/measurement/measurement';
 import Style2 from './pages/home/Style2';
 import Style3 from './pages/home/Style3';
@@ -167,6 +168,10 @@ function App() {
 
                         <Route exact path="/virtualfitting-new">
                             <VirtualTryOnNew options={options}/>
+                        </Route>
+
+                        <Route exact path="/demo">
+                            <Demo options={options}/>
                         </Route>
 
                         <Route exact path="/checkout">

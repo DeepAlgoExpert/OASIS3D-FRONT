@@ -241,6 +241,9 @@ select {
 .page-wrapper {
     position: relative;
     overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
 }
 
 .container-1410 {
@@ -1396,16 +1399,16 @@ button:active {
 .page-title {
     background-color: #f1f1f1;
     width: 100%;
-    padding: 100px 0;
+    padding: 60px 0;
     position: relative;
     word-break: break-all;
 }
 
-@media (max-width: 991px) {
+/* @media (max-width: 991px) {
     .page-title {
         height: 300px;
     }
-}
+} */
 
 .page-title .page-title-container {
     width: 100%;
