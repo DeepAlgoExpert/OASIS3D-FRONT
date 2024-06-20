@@ -247,22 +247,22 @@ function VirtualFittingRoom({ options }) {
                                             <div className='garmentOptions' id="garmentOptions">
                                                 {
                                                     products.map((item, index) => (
-                                                        item.category === category.toLocaleLowerCase() && (
-                                                            <div key={index} className={`productImgContainer ${clickedItemId === item.mainImg ? 'clicked' : ''}`}
-                                                                onClick={() => item.category === 'face'? setModel(item.mainImg) : handleDivClick(item)} >
-                                                                <img className='productImg' 
-                                                                    src={process.env.PUBLIC_URL + item.mainImg} alt={item.title} />
-                                                                <div className='saveIcon'>
-                                                                    <div>
-                                                                        <img className="heart-icon" 
-                                                                            src="https://revery-integration-tools.s3.us-east-2.amazonaws.com/images/heart.png" alt="Save" />
-                                                                    </div>
-                                                                </div>
-                                                                <div className='productNameDiv'>
-                                                                    <p className='product'>{item.title}</p>
-                                                                </div>
-                                                            </div>
-                                                        )
+                                                    
+                                                      <div key={index} className={`productImgContainer ${clickedItemId === item.mainImg ? 'clicked' : ''} ${item.category === category.toLowerCase() ? 'selected' : 'non-selected'}`}
+                                                          onClick={() => item.category === 'face'? setModel(item.mainImg) : handleDivClick(item)} >
+                                                          <img className='productImg' 
+                                                              src={process.env.PUBLIC_URL + item.mainImg} alt={item.title} />
+                                                          <div className='saveIcon'>
+                                                              <div>
+                                                                  <img className="heart-icon" 
+                                                                      src="https://revery-integration-tools.s3.us-east-2.amazonaws.com/images/heart.png" alt="Save" />
+                                                              </div>
+                                                          </div>
+                                                          <div className='productNameDiv'>
+                                                              <p className='product'>{item.title}</p>
+                                                          </div>
+                                                      </div>
+                                                      
                                                     ))
                                                 }
                                             </div>

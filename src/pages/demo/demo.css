@@ -194,6 +194,10 @@
     border: 2px solid #120101;
 }
 
+#demo .garmentOptions .non-selected {
+    display: none !important;
+}
+
 #demo .productImg {
     width: 100%;
     display: inline-block;
