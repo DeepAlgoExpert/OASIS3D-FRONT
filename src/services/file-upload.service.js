@@ -105,7 +105,7 @@ class FileUploadService {
     //garment = this.getBase64Image(garment);
     //console.log('garment', garment);
 
-    return https.post("/virtual-fit", {
+    return https.post("/virtual-fit-demo", {
       headers: {
         "Content-Type": "multipart/form-data",
       },
