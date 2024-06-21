@@ -55,16 +55,16 @@ class FileUploadService {
     
     switch (garmentType) {
       case 'Upper':
-        garmentType = 'upper_body';
+        garmentType = 'tops';
         break;
       case 'Lower':
-        garmentType = 'lower_body';
+        garmentType = 'bottom';
         break;
       case 'Dress':
         garmentType = 'dresses';
         break;
       default:
-        garmentType = 'upper_body';
+        garmentType = 'tops';
     }
 
     return https.post("/virtual-fit", {
