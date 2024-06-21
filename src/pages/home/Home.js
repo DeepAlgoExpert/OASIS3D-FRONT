@@ -87,7 +87,7 @@ function Home({ options }) {
                         </div>
                     </div>
                     <div className='img-container col-md-7'>
-                        <img src='https://styleshifter.app/wp-content/uploads/2022/01/PNG-image-B0D35640C694-1.png'></img>
+                        <img src='/assets/images/home/PNG-image-B0D35640C694-1.png'></img>
                     </div>
                 </div>
             </section>
@@ -97,7 +97,7 @@ function Home({ options }) {
             <section className='virtual-try-on-section'>
                 <div className='virtual-try-on-container row'>
                     <div className='img-container col-md-6'>
-                        <img src='https://styleshifter.app/wp-content/uploads/2024/01/SS-hero-banner.png'></img>
+                        <img src='/assets/images/home/SS-hero-banner.png'></img>
                     </div>
                     <div className='text-container col-md-6'>
                         <div className='title'>
@@ -126,14 +126,14 @@ function Home({ options }) {
                         </div>
                     </div>
                     <div className='img-container col-md-7'>
-                        <img src='https://styleshifter.app/wp-content/uploads/2022/04/IMG_0710-min.png'></img>
+                        <img src='/assets/images/home/IMG_0710-min.png'></img>
                     </div>
                 </div>
             </section>
             <section className='power-data-section'>
                 <div className='row'>
                     <div className='img-container col-md-6'>
-                        <img src='https://styleshifter.app/wp-content/uploads/2023/12/PNG-image-10EDC555E985-1.png'></img>
+                        <img src='/assets/images/home/PNG-image-10EDC555E985-1.png'></img>
                     </div>
                     <div className='text-container col-md-6'>
                         <div className='title'>

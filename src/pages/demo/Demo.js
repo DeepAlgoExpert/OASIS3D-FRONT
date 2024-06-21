@@ -50,24 +50,28 @@ function VirtualFittingRoom({ options }) {
         setQuickViewData(item);
     };
 
-    const handleDivClick = (item) => {
+    
+
+    const handleGarmentClick = (item) => {
+        const _garment = document.getElementById(item.id);
+        const _garmentDes = item.title;
         setClickedItemId(item.mainImg);
         setClickedGarmentTitle(item.title);
-        setGarment(item.mainImg)
-        UploadService.tryon_demo('dc', model, category, clickedGarmentTitle, garment, (event) => {
-            //event.preventDefault(); // Prevent default form submission
-            this.setState({
-              progress: Math.round((100 * event.loaded) / event.total),
-            });
+        setGarment(_garment);
+        UploadService.tryon_demo('dc', model, category, _garmentDes, _garment, (event) => {
           })
             .then((response) => {
-              setModel(response.data);
+              setModelPreview(response.data);
             })
             .catch((err) => {
-              this.setState({
-                progress: 0,
-              });
+              
             });
+    };
+
+    const handleModelClick = (item) => {
+      setModelPreview(process.env.PUBLIC_URL + item.mainImg);
+      setModel(document.getElementById(item.id));
+       
     };
 
     const config2 = {
@@ -169,11 +173,11 @@ function VirtualFittingRoom({ options }) {
       ];
 
     const [activeTab, setActiveTab] = useState(0);
-    const [model, setModel] = useState('/assets/images/user/woman3.jpg');
+    const [model, setModel] = useState(null);
 
     const [resultState, setResultState] = useState(null);
 
-    const [modelPreview, setModelPreview] = useState('/assets/images/try-on/1.jpg');
+    const [modelPreview, setModelPreview] = useState('/assets/images/user/woman3.jpg');
     const [garmentPreview, setGarmentPreview] = useState('/assets/images/try-on/2.jpg');
 
     // State to hold the selected model type
@@ -199,6 +203,14 @@ function VirtualFittingRoom({ options }) {
         time: "10AM - 5 PM, Sunday closed"
     };
 
+    useEffect(() => {
+      const setInit = async () => {
+        setModel(document.getElementById("3ew553u213"));
+      };
+  
+      setInit();
+    }, []);
+
     return (
         <Fragment>
             <main className='main-container'>
@@ -211,26 +223,26 @@ function VirtualFittingRoom({ options }) {
                         <div>
                             <div className='frame row'>
                                 <div className='model-frame col-sm-12 col-xs-12 col-md-6 '>
-                                <img class="modelImg" src={model} />
+                                <img class="modelImg" src={modelPreview} />
                                 <div className='segmentFrame selectCategory'>
                                             <div name="tops" className={`selectCategoryContainer tops female select ${category === 'Tops' ? 'clicked' : ''}`} value="tops" id="tops">
                                                 <div className='selectCategoryButton' onClick={() => setCategory('Tops')}>
-                                                    <img src="https://revery-integration-tools.s3.us-east-2.amazonaws.com/images/tops.svg" />
+                                                    <img src="/assets/images/demo/tops.svg" />
                                                 </div>
                                             </div>
                                             <div name="bottoms" className={`selectCategoryContainer bottoms female ${category === 'Bottom' ? 'clicked' : ''}`} value="bottoms" id="bottoms">
                                                 <div className='selectCategoryButton' onClick={() => setCategory('Bottom')}>
-                                                    <img src="https://revery-integration-tools.s3.us-east-2.amazonaws.com/images/bottoms.svg" />
+                                                    <img src="/assets/images/demo/bottoms.svg" />
                                                 </div>
                                             </div>
                                             <div name="allbody" className={`selectCategoryContainer allbody female ${category === 'Dress' ? 'clicked' : ''}`} value="allbody" id="allbody">
                                                 <div className='selectCategoryButton' onClick={() => setCategory('Dress')}>
-                                                    <img src="https://revery-integration-tools.s3.us-east-2.amazonaws.com/images/dress.svg" />
+                                                    <img src="/assets/images/demo/dress.svg" />
                                                 </div>
                                             </div>
                                             <div name="faces" className={`selectCategoryContainer ${category === 'Face' ? 'clicked' : ''}`} value='faces' id='faces'>
                                                 <div className='selectCategoryButton' onClick={() => setCategory('Face')}>
-                                                    <img src="https://revery-integration-tools.s3.us-east-2.amazonaws.com/images/face.svg" />
+                                                    <img src="/assets/images/demo/face.svg" />
                                                 </div> 
                                             </div>
                                         </div>
@@ -249,13 +261,13 @@ function VirtualFittingRoom({ options }) {
                                                     products.map((item, index) => (
                                                     
                                                       <div key={index} className={`productImgContainer ${clickedItemId === item.mainImg ? 'clicked' : ''} ${item.category === category.toLowerCase() ? 'selected' : 'non-selected'}`}
-                                                          onClick={() => item.category === 'face'? setModel(item.mainImg) : handleDivClick(item)} >
-                                                          <img className='productImg' 
+                                                          onClick={() => item.category === 'face'? handleModelClick(item): handleGarmentClick(item)} >
+                                                          <img className='productImg' id={item.id}
                                                               src={process.env.PUBLIC_URL + item.mainImg} alt={item.title} />
                                                           <div className='saveIcon'>
                                                               <div>
                                                                   <img className="heart-icon" 
-                                                                      src="https://revery-integration-tools.s3.us-east-2.amazonaws.com/images/heart.png" alt="Save" />
+                                                                      src="/assets/images/demo/heart.png" alt="Save" />
                                                               </div>
                                                           </div>
                                                           <div className='productNameDiv'>

@@ -12,6 +12,17 @@ class FileUploadService {
     return new Blob([byteArray], { type: contentType });
   }
 
+  getBase64Image(img) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
+    var dataURL = canvas.toDataURL("image/png");
+    return dataURL.replace(/^data:image\/?[A-z]*;base64,/);
+  }
+
+
   tryon(modelType, model, garmentType, garment, onUploadProgress) {
     
     switch (garmentType) {
@@ -69,8 +80,11 @@ class FileUploadService {
     });
   }
 
+
+
   tryon_demo(modelType, model, garmentType, subgarmentType, garment, onUploadProgress) {
     
+    console.log('category:', garmentType);
     switch (garmentType) {
       case 'Tops':
         garmentType = 'upper_body';
@@ -85,7 +99,21 @@ class FileUploadService {
         garmentType = 'upper_body';
     }
 
-    return https.post("/virtual-fit-demo", {
+    console.log('subcategory:', subgarmentType);
+    model = this.getBase64Image(model);
+    console.log('model', model);
+    garment = this.getBase64Image(garment);
+    console.log('garment', garment);
+//    const garment_response = fetch(garment);
+  //  const garment_blob = response.blob();
+    //const garment_reader = new FileReader();
+    //garment_reader.onloadend = () => {
+      //  garment = garment_reader.result;
+    //};
+
+    //console.log('model:', model);
+
+    return https.post("/virtual-fit", {
       headers: {
         "Content-Type": "multipart/form-data",
       },

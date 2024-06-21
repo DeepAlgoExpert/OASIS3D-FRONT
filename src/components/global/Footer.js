@@ -24,7 +24,7 @@ function Footer() {
                     <div className="upper-wrapper">
                         <div className="logo-col">
                             <a href='/' className='logo'>
-                                <img src='https://styleshifter.app/wp-content/uploads/2022/03/icon_s-2.png'></img>
+                                <img src='/assets/images/logo/icon_s-2.png'></img>
                             </a>
                             
                         </div>

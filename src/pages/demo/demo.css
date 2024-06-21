@@ -93,7 +93,7 @@
     background: #fff;
     border: 1px solid #bdbdbd;
     border-radius: 20px 0 0 20px;
-    z-index: 12 !important;
+    z-index: 3 !important;
     justify-content: space-evenly;
 }
     
