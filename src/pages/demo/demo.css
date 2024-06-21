@@ -34,6 +34,10 @@
     height: 100%;
 }
 
+.model-frame .spinner{
+    position: absolute;
+}
+
 .main-container {
     flex-grow: 1;
 }

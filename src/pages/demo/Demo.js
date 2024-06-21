@@ -14,12 +14,19 @@ import TabButtons from "../../components/tryon/tabbutton.component";
 import TabContent from "../../components/tryon/tabcontent.component";
 import Products from "../../components/shop/DemoProducts";
 import UploadService from "../../services/file-upload.service";
+import DotLoader from "react-spinners/DotLoader";
 
 import "./demo.css";
 
 import productsData from '../../data/demo-products.json';
 import productsData_2 from '../../data/demo-products.json';
 const products = [...productsData];
+
+const override = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
 
 /**
  * ContactUs page
@@ -226,6 +233,21 @@ function VirtualFittingRoom({ options }) {
                         <div>
                             <div className='frame row'>
                                 <div className='model-frame col-sm-12 col-xs-12 col-md-6 '>
+                                  
+                                  {!resultState &&
+                                      <>
+                                          <DotLoader
+                                              cssOverride={override}
+                                              size={80}
+                                              color={"#ffff"}
+                                              loading={true}
+                                              speedMultiplier={1.5}
+                                              aria-label="Loading Spinner"
+                                              data-testid="loader"
+                                              className='spinner'
+                                          />
+                                      </>
+                                  }
                                   <img class="modelImg" src={resultState? `data:image/png;base64,${resultState}`: modelPreview} />
                                 <div className='segmentFrame selectCategory'>
                                             <div name="tops" className={`selectCategoryContainer tops female select ${category === 'Tops' ? 'clicked' : ''}`} value="tops" id="tops">
