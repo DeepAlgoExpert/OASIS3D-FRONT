@@ -84,7 +84,7 @@ class FileUploadService {
 
   tryon_demo(modelType, model, garmentType, subgarmentType, garment, onUploadProgress) {
     
-    console.log('category:', garmentType);
+    console.log('model:', model.src);
     switch (garmentType) {
       case 'Tops':
         garmentType = 'tops';
@@ -99,26 +99,18 @@ class FileUploadService {
         garmentType = 'tops';
     }
 
-    console.log('subcategory:', subgarmentType);
-    model = this.getBase64Image(model);
-    console.log('model', model);
-    garment = this.getBase64Image(garment);
-    console.log('garment', garment);
-//    const garment_response = fetch(garment);
-  //  const garment_blob = response.blob();
-    //const garment_reader = new FileReader();
-    //garment_reader.onloadend = () => {
-      //  garment = garment_reader.result;
-    //};
-
-    //console.log('model:', model);
+    //console.log('subcategory:', subgarmentType);
+    //model = this.getBase64Image(model);
+    //console.log('model', model);
+    //garment = this.getBase64Image(garment);
+    //console.log('garment', garment);
 
     return https.post("/virtual-fit", {
       headers: {
         "Content-Type": "multipart/form-data",
       },
-      model: model,
-      garment: garment,
+      model: model.src,
+      garment: garment.src,
       modelType: modelType,
       garmentType: garmentType,
       subgarmentType: subgarmentType,
