@@ -45,6 +45,10 @@ function VirtualFittingRoom({ options }) {
     const [garment, setGarment] = useState('');
     const [isFinished, setIsFinished] = useState(false);
 
+    const [model, setModel] = useState(null);
+    const [resultState, setResultState] = useState(null);
+    const [modelPreview, setModelPreview] = useState('/assets/images/user/woman3.jpg');
+
     const HandelQuickViewData = (e, item) => {
         e.preventDefault();
         setShowQuickView(!showQuickView);
@@ -59,12 +63,11 @@ function VirtualFittingRoom({ options }) {
         setClickedItemId(item.mainImg);
         setClickedGarmentTitle(item.title);
         setGarment(_garment);
+        setResultState(null);
         UploadService.tryon_demo('dc', model, category, _garmentDes, _garment, (event) => {
           })
             .then((response) => {
-              console.log('response:', response.data);
-              setModelPreview(response.data);
-              setIsFinished(true);
+              setResultState(response.data)
             })
             .catch((err) => {
               
@@ -72,7 +75,7 @@ function VirtualFittingRoom({ options }) {
     };
 
     const handleModelClick = (item) => {
-      setIsFinished(false);
+      setResultState(null);
       setModelPreview(process.env.PUBLIC_URL + item.mainImg);
       setModel(document.getElementById(item.id));
        
@@ -177,11 +180,7 @@ function VirtualFittingRoom({ options }) {
       ];
 
     const [activeTab, setActiveTab] = useState(0);
-    const [model, setModel] = useState(null);
 
-    const [resultState, setResultState] = useState(null);
-
-    const [modelPreview, setModelPreview] = useState('/assets/images/user/woman3.jpg');
     const [garmentPreview, setGarmentPreview] = useState('/assets/images/try-on/2.jpg');
 
     // State to hold the selected model type
@@ -227,7 +226,7 @@ function VirtualFittingRoom({ options }) {
                         <div>
                             <div className='frame row'>
                                 <div className='model-frame col-sm-12 col-xs-12 col-md-6 '>
-                                  <img class="modelImg" src={isFinished? `data:image/png;base64,${modelPreview}`: {modelPreview}} />
+                                  <img class="modelImg" src={resultState? `data:image/png;base64,${resultState}`: modelPreview} />
                                 <div className='segmentFrame selectCategory'>
                                             <div name="tops" className={`selectCategoryContainer tops female select ${category === 'Tops' ? 'clicked' : ''}`} value="tops" id="tops">
                                                 <div className='selectCategoryButton' onClick={() => setCategory('Tops')}>
