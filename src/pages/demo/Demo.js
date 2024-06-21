@@ -71,6 +71,7 @@ function VirtualFittingRoom({ options }) {
     };
 
     const handleModelClick = (item) => {
+      setIsFinished(false);
       setModelPreview(process.env.PUBLIC_URL + item.mainImg);
       setModel(document.getElementById(item.id));
        
