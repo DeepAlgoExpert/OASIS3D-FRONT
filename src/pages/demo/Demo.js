@@ -226,7 +226,7 @@ function VirtualFittingRoom({ options }) {
                         <div>
                             <div className='frame row'>
                                 <div className='model-frame col-sm-12 col-xs-12 col-md-6 '>
-                                  <img class="modelImg" src={isFinished? `data:image/png;base64,${modelPreview}`: {modelPreview}} />
+                                  <img class="modelImg" src={modelPreview} />
                                 <div className='segmentFrame selectCategory'>
                                             <div name="tops" className={`selectCategoryContainer tops female select ${category === 'Tops' ? 'clicked' : ''}`} value="tops" id="tops">
                                                 <div className='selectCategoryButton' onClick={() => setCategory('Tops')}>
