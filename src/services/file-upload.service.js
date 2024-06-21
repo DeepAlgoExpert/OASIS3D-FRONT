@@ -87,16 +87,16 @@ class FileUploadService {
     console.log('category:', garmentType);
     switch (garmentType) {
       case 'Tops':
-        garmentType = 'upper_body';
+        garmentType = 'tops';
         break;
       case 'Bottom':
-        garmentType = 'lower_body';
+        garmentType = 'bottom';
         break;
       case 'Dress':
         garmentType = 'dresses';
         break;
       default:
-        garmentType = 'upper_body';
+        garmentType = 'tops';
     }
 
     console.log('subcategory:', subgarmentType);
