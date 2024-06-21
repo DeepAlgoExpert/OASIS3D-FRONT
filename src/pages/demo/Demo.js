@@ -43,6 +43,7 @@ function VirtualFittingRoom({ options }) {
     const [clickedItemId, setClickedItemId] = useState(null);
     const [clickedGarmentTitle, setClickedGarmentTitle] = useState(null);
     const [garment, setGarment] = useState('');
+    const [isFinished, setIsFinished] = useState(false)
 
     const HandelQuickViewData = (e, item) => {
         e.preventDefault();
@@ -62,6 +63,7 @@ function VirtualFittingRoom({ options }) {
           })
             .then((response) => {
               setModelPreview(response.data);
+              setIsFinished(true);
             })
             .catch((err) => {
               
@@ -223,7 +225,7 @@ function VirtualFittingRoom({ options }) {
                         <div>
                             <div className='frame row'>
                                 <div className='model-frame col-sm-12 col-xs-12 col-md-6 '>
-                                <img class="modelImg" src={modelPreview} />
+                                  <img class="modelImg" src={isFinished? `data:image/png;base64,${modelPreview}`: {modelPreview}} />
                                 <div className='segmentFrame selectCategory'>
                                             <div name="tops" className={`selectCategoryContainer tops female select ${category === 'Tops' ? 'clicked' : ''}`} value="tops" id="tops">
                                                 <div className='selectCategoryButton' onClick={() => setCategory('Tops')}>
