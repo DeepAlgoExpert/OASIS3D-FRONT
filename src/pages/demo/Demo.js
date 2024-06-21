@@ -43,7 +43,7 @@ function VirtualFittingRoom({ options }) {
     const [clickedItemId, setClickedItemId] = useState(null);
     const [clickedGarmentTitle, setClickedGarmentTitle] = useState(null);
     const [garment, setGarment] = useState('');
-    const [isFinished, setIsFinished] = useState(false)
+    const [isFinished, setIsFinished] = useState(false);
 
     const HandelQuickViewData = (e, item) => {
         e.preventDefault();
@@ -61,16 +61,11 @@ function VirtualFittingRoom({ options }) {
         setGarment(_garment);
         UploadService.tryon_demo('dc', model, category, _garmentDes, _garment, (event) => {
           })
-          .then(response => {
-            if (!response.ok) {
-              throw new Error('Image not found');
-            }
-            return response.blob();
-          })
-          .then(imageBlob => {
-            const imageObjectURL = URL.createObjectURL(imageBlob);
-            setModelPreview(imageObjectURL);
-          })
+            .then((response) => {
+              console.log('response:', response.data);
+              setModelPreview(response.data);
+              setIsFinished(true);
+            })
             .catch((err) => {
               
             });
@@ -232,7 +227,7 @@ function VirtualFittingRoom({ options }) {
                         <div>
                             <div className='frame row'>
                                 <div className='model-frame col-sm-12 col-xs-12 col-md-6 '>
-                                  <img class="modelImg" src={modelPreview} />
+                                  <img class="modelImg" src={isFinished? `data:image/png;base64,${modelPreview}`: {modelPreview}} />
                                 <div className='segmentFrame selectCategory'>
                                             <div name="tops" className={`selectCategoryContainer tops female select ${category === 'Tops' ? 'clicked' : ''}`} value="tops" id="tops">
                                                 <div className='selectCategoryButton' onClick={() => setCategory('Tops')}>
