@@ -61,10 +61,16 @@ function VirtualFittingRoom({ options }) {
         setGarment(_garment);
         UploadService.tryon_demo('dc', model, category, _garmentDes, _garment, (event) => {
           })
-            .then((response) => {
-              setModelPreview(response.data);
-              setIsFinished(true);
-            })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Image not found');
+            }
+            return response.blob();
+          })
+          .then(imageBlob => {
+            const imageObjectURL = URL.createObjectURL(imageBlob);
+            setModelPreview(imageObjectURL);
+          })
             .catch((err) => {
               
             });
